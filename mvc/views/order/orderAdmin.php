@@ -13,7 +13,13 @@
 				<tr>
 					<th>STT</th>
 					<th>Họ & Tên</th>
+<<<<<<< HEAD
 					<th>Email</th>
+=======
+					<th>SĐT</th>
+					<th>Email</th>
+					<th>Địa Chỉ</th>
+>>>>>>> de184f3d1b9b9e7bf7d73aa5c02793075ab018c3
 					<th>Nội Dung</th>
 					<th>Tổng Tiền</th>
 					<th>Ngày Tạo</th>
@@ -27,7 +33,13 @@
 		echo '<tr>
 					<th>'.$i.'</th>
 					<td><a href="http://localhost/Laptrinhweb/OrderAdmin/detailOrder/'.$data["allOrder"][$i]['id'].'">'.$data["allOrder"][$i]['fullname'].'</a></td>
+<<<<<<< HEAD
 					<td>'.$data["allOrder"][$i]['email'].'</a></td>
+=======
+					<td>'.$data["allOrder"][$i]['phone_number'].'</a></td>
+					<td>'.$data["allOrder"][$i]['email'].'</a></td>
+					<td>'.$data["allOrder"][$i]['address'].'</td>
+>>>>>>> de184f3d1b9b9e7bf7d73aa5c02793075ab018c3
 					<td>'.$data["allOrder"][$i]['note'].'</td>
 					<td>'.$data["allOrder"][$i]['total_money'].'</td>
 					<td>'.$data["allOrder"][$i]['order_date'].'</td>
