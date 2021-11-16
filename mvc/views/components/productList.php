@@ -18,13 +18,13 @@
         " 
         type="button" 
         class="btn btn-primary">
-        <a style="color:white" href="http://localhost/Laptrinhweb/Home/productList/0">Tất cả</a>
+        <a style="color:white;text-decoration:none" href="http://localhost/Laptrinhweb/Home/productList/0">Tất cả</a>
     </button>
     <?php
         $countCategory = count($data["allCategory"]);
             for($i=0;$i<$countCategory;$i++){
                 echo   '<button style="margin-bottom: 5px; margin-right: 5px;';if($data["category_id"] == $data["allCategory"][$i]["id"]) echo "background-color:red"; echo '" type="button" class="btn btn-primary">
-                    <a style="color:white" href="http://localhost/Laptrinhweb/Home/productList/'.$data["allCategory"][$i]["id"].'">'.$data["allCategory"][$i]["name"].'</a></button>';
+                    <a style="color:white;text-decoration:none" href="http://localhost/Laptrinhweb/Home/productList/'.$data["allCategory"][$i]["id"].'">'.$data["allCategory"][$i]["name"].'</a></button>';
             }
                 
     ?>
@@ -37,28 +37,28 @@
                     echo "background-color:red";
             ?>
         " type="button" class="btn btn-primary">
-            <a style="color:white" href="http://localhost/Laptrinhweb/Home/productList/<?=$data["category_id"]?>/1/1">Giá (Cao &gt; Thấp)</a></button>
+            <a style="color:white;text-decoration:none  " href="http://localhost/Laptrinhweb/Home/productList/<?=$data["category_id"]?>/1/1">Giá (Cao &gt; Thấp)</a></button>
         <button style="margin-bottom: 5px; margin-right: 5px;
             <?php
                 if($data["fillter"] == 2)
                     echo "background-color:red";
             ?>
         " type="button" class="btn btn-primary">
-            <a style="color:white" href="http://localhost/Laptrinhweb/Home/productList/<?=$data["category_id"]?>/1/2">Giá (Thấp &gt; Cao)</a></button>
+            <a style="color:white;text-decoration:none" href="http://localhost/Laptrinhweb/Home/productList/<?=$data["category_id"]?>/1/2">Giá (Thấp &gt; Cao)</a></button>
         <button style="margin-bottom: 5px; margin-right: 5px;
             <?php
                 if($data["fillter"] == 3)
                     echo "background-color:red";
             ?>
         " type="button" class="btn btn-primary">
-            <a style="color:white" href="http://localhost/Laptrinhweb/Home/productList/<?=$data["category_id"]?>/1/3">Tên (A &gt; Z)</a></button>
+            <a style="color:white;text-decoration:none" href="http://localhost/Laptrinhweb/Home/productList/<?=$data["category_id"]?>/1/3">Tên (A &gt; Z)</a></button>
         <button style="margin-bottom: 5px; margin-right: 5px;
             <?php
                 if($data["fillter"] == 4)
                     echo "background-color:red";
             ?>
         " type="button" class="btn btn-primary">
-            <a style="color:white" href="http://localhost/Laptrinhweb/Home/productList/<?=$data["category_id"]?>/1/4">Tên (Z &gt; A)</a></button>
+            <a style="color:white;text-decoration:none" href="http://localhost/Laptrinhweb/Home/productList/<?=$data["category_id"]?>/1/4">Tên (Z &gt; A)</a></button>
        
         <hr>
         <?php

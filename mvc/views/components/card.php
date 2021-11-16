@@ -6,7 +6,9 @@
         </ol>
     </nav>
 <section>
-
+<?php
+  
+?>
   <!--Grid row-->
   <div id="wrapper" class="row">
 
@@ -108,8 +110,12 @@
               <span><strong><?=number_format($total)?> đ</strong></span>
             </li>
           </ul>
-
-          <button type="button" class="btn btn-primary btn-block">Thanh toán</button>
+          <?php
+            if(isset($user))
+              echo '<a style="color:white;text-decoration:none" href="http://localhost/Laptrinhweb/Home/checkout/'.$total.'"><button type="button" class="btn btn-primary btn-block">Thanh toán</button></a>';
+            else echo '<a style="color:red" href="http://localhost/Laptrinhweb/Login">Vui lòng đăng nhập để đặt hàng</a>'; 
+          ?>
+          
 
         </div>
       </div>

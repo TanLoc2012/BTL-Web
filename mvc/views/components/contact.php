@@ -1,67 +1,77 @@
-            <!-- Header Area End Here -->
-            <!-- Begin Li's Breadcrumb Area -->
-            <div class="breadcrumb-area">
-                <div class="container">
-                    <div class="breadcrumb-content">
-                        <ul>
-                            <li><a href="index.html">Trang chủ</a></li>
-                            <li class="active">Liên hệ</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- Li's Breadcrumb Area End Here -->     
-            <!-- Begin Contact Main Page Area -->
-            <div class="contact-main-page mt-60 mb-40 mb-md-40 mb-sm-40 mb-xs-40">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-5 offset-lg-1 col-md-12 order-1 order-lg-2">
-                            <div class="contact-page-side-content">
-                                <h3 class="contact-page-title">Liên hệ</h3>
-                                <div class="single-contact-block">
-                                    <h4><i class="fa fa-fax"></i> Địa chỉ:</h4>
-                                    <p>Đại học Bách Khoa Thành phố Hồ Chí Minh</p>
-                                </div>
-                                <div class="single-contact-block">
-                                    <h4><i class="fa fa-phone"></i> Số điện thoại</h4>
-                                    <p>(+84)12 543 6789</p>
-                                </div>
-                                <div class="single-contact-block last-child">
-                                    <h4><i class="fa fa-envelope-o"></i> Email</h4>
-                                    <p>contact@gmail.com</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-12 order-2 order-lg-1">
-                            <div class="contact-form-content pt-sm-55 pt-xs-55">
-                                <h4 class="contact-page-title">Cho chúng tôi biết bạn muốn nói điều gì</h4>
-                                <div class="contact-form">
-                                    <form  id="contact-form" action="http://demo.hasthemes.com/limupa-v3/limupa/mail.php" method="post">
-                                        <div class="form-group">
-                                            <label>Tên <span class="required">*</span></label>
-                                            <input type="text" name="customerName" id="customername" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Email <span class="required">*</span></label>
-                                            <input type="email" name="customerEmail" id="customerEmail" required>
-                                        </div>
-                                        <div class="form-group mb-30">
-                                            <label>Nội dung</label>
-                                            <textarea name="contactMessage" id="contactMessage" ></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <button type="submit" value="submit" id="submit" class="li-btn-3" name="submit">Gửi</button>
-                                        </div>
-                                    </form>
-                                </div>
-                                <p class="form-messege"></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </body>
+<!--Section: Contact v.2-->
+<section id="wrapper" class="mb-4">
 
-<!-- contact32:04-->
-</html>
+    <!--Section heading-->
+    <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
+    <!--Section description-->
+    <p class="text-center w-responsive mx-auto mb-5">Bạn có bất kì câu hỏi nào cho chúng tôi không? Hãy hỏi ngay đừng ngần ngại nhé. Chúng tôi sẽ trả lời bạn sớm nhất có thể!!!</p>
+
+    <div class="row">
+
+        <!--Grid column-->
+        <div class="col-md-9 mb-md-0 mb-5">
+            <form id="contact-form" name="contact-form" action="http://localhost/Laptrinhweb/FeedbackAdmin/addFeedback" method="POST">
+
+                <!--Grid row-->
+                <div class="row">
+                </div>
+                <!--Grid row-->
+			    <input type="text" name="user_id" value="<?=$user["id"]?>" hidden="true">
+
+                <!--Grid row-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="md-form mb-0">
+                            <label for="subject" class="">Chủ đề</label>
+                            <input type="text" id="subject" name="subject" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <!--Grid row-->
+
+                <!--Grid row-->
+                <div class="row">
+
+                    <!--Grid column-->
+                    <div class="col-md-12">
+
+                        <div class="md-form">
+                            <label for="message">Nội dung</label>
+                            <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+                        </div>
+
+                    </div>
+                </div>
+                <!--Grid row-->
+                <div style="margin-top:10px" class="text-center text-md-left">
+                    <button class="btn btn-primary" name="btnContact">Gửi</button>
+                </div>
+
+            </form>
+
+            <div class="status"></div>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-3 text-center">
+            <ul class="list-unstyled mb-0">
+                <li><i class="fas fa-map-marker-alt fa-2x"></i>
+                    <p>Đại học Bách Khoa TPHCM</p>
+                </li>
+
+                <li><i class="fas fa-phone mt-4 fa-2x"></i>
+                    <p>034 765 1292</p>
+                </li>
+
+                <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+                    <p>loc.nguyencse@gmail.com</p>
+                </li>
+            </ul>
+        </div>
+        <!--Grid column-->
+
+    </div>
+
+</section>
+<!--Section: Contact v.2-->

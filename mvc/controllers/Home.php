@@ -151,6 +151,21 @@ class Home extends Controller{
         }
     }
 
+    public function checkout($total){
+        
+        $this->view("home",[
+            "render"=>"checkout",
+            "allCategory"=>$this->allCategory,
+            "totalMoney"=>$total
+        ]);
+    }
+    
+    public function succesOrder(){
+        
+        $this->view("succesOrder",[
+        ]);
+    }
+
     public function deleteCart(){
         if(!empty($_POST)) {
             $action = getPost('action');
@@ -182,6 +197,41 @@ class Home extends Controller{
         $this->view("home",[
             "render"=>"quanlytaikhoan",
             "allCategory"=>$this->allCategory
+        ]);
+    }
+
+    public function quanlydonhang($user_id){
+        $orderSuccessModel = $this->model("OrderModel");
+        $orderItem = $orderSuccessModel->getorders($user_id);
+
+        $this->view("home",[
+            "render"=>"quanlydonhang",
+            "allCategory"=>$this->allCategory,
+            "orderItem"=> $orderItem
+        ]);
+    }
+
+    public function detailOrderUser($id) {
+        $orderModel = $this->model("OrderModel");
+        $detailorder = $orderModel->getDetailOrder($id);
+        $orderItem = $orderModel->getOrderItem($id);
+
+        $this->view("home",[
+            "render"=>"orderDetail",
+            "detailOrder"=>$detailorder,
+            "orderItem"=>$orderItem
+        ]);
+    }
+
+    public function confirmOrder($orderId, $user_id){
+        $orderSuccessModel = $this->model("OrderModel");
+        $orderSuccessModel->updateStatusOrder($orderId);
+        $orderItem = $orderSuccessModel->getorders($user_id);
+
+        $this->view("home",[
+            "render"=>"quanlydonhang",
+            "allCategory"=>$this->allCategory,
+            "orderItem"=> $orderItem
         ]);
     }
 

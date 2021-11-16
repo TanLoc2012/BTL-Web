@@ -26,5 +26,17 @@ else if($data["render"] == "tintuc"){
 else if($data["render"] == "quanlytaikhoan"){
     require_once "mvc/views/components/updateInfoUser.php";
 }
+else if($data["render"] == "checkout"){
+    require_once "mvc/views/components/checkout.php";
+}
+else if($data["render"] == "succesOrder"){
+    require_once "mvc/views/components/succesOrder.php";
+}
+else if($data["render"] == "quanlydonhang"){
+    require_once "mvc/views/components/quanlydonhang.php";
+}
+else if($data["render"] == "orderDetail"){
+    require_once "mvc/views/components/detailOrder.php";
+}
 
 require_once "mvc/views/blocks/footer.php";

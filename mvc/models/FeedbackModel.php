@@ -3,7 +3,10 @@ require_once "mvc/utility/utility.php";
 class FeedbackModel extends DB{
     
     public function getAllFeedback(){
-        $sql = "select * from feedback order by status asc, updated_at desc";
+        $sql = "SELECT feedback.id,user.fullname,user.phone_number,user.email,feedback.note,feedback.updated_at,product.title,feedback.status
+                FROM feedback,user,product
+                WHERE feedback.user_id = user.id AND feedback.product_id=product.id
+                order by status asc, updated_at desc";
 	    $data = $this->executeResult($sql);
         return $data;
     }
@@ -21,6 +24,14 @@ class FeedbackModel extends DB{
         $created_at = date("Y-m-d H:i:s");
 	    $sql = "INSERT INTO feedback (note, user_id, product_id, created_at, updated_at) 
                 VALUES ('$note', '$userid', '$product_id', '$created_at', '$updated_at')";
+	    $this->execute($sql);
+    }
+
+    public function addContact($note, $userid){
+        $updated_at = date("Y-m-d H:i:s");
+        $created_at = date("Y-m-d H:i:s");
+	    $sql = "INSERT INTO feedback (note, user_id, product_id,  created_at, updated_at) 
+                VALUES ('$note', '$userid', 48,'$created_at', '$updated_at')";
 	    $this->execute($sql);
     }
 

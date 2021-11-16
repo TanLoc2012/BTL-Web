@@ -1,6 +1,6 @@
 <div id="wrapper">
 
-    <h3 style="margin-left:20px">Vsmart</h3>
+    <a style="color:black;text-decoration:none" href="http://localhost/Laptrinhweb/Home/productList/1"><h3 style="margin-left:20px; margin-top: 15px">Vsmart</h3></a>
     <hr/>
     <div class="showproduct">
     <?php
@@ -23,7 +23,7 @@
         ?>
     </div>
 
-    <h3 style="margin-left:20px">Iphone</h3>
+    <a style="color:black;text-decoration:none" href="http://localhost/Laptrinhweb/Home/productList/2"><h3 style="margin-left:20px; margin-top: 15px">Iphone</h3></a>
     <hr/>
     <div class="showproduct">
     <?php
@@ -40,13 +40,13 @@
             echo            '<span class="card-text">'.number_format($data["productIphone"][$i]["price"]).'đ</span>';
             echo            '<span style="margin-left:12px; text-decoration: line-through;" class="card-text">'; if($data["productIphone"][$i]["discount"] != 0) echo number_format($data["productIphone"][$i]["discount"]).'đ'; echo '</span>';
             echo        '</div>';
-            echo        '<button type="button" class="btnOrder btn btn-danger">Đặt hàng</button>';
+            echo        '<button type="button" class="btnOrder btn btn-danger" onclick="addToCard('.$data["productIphone"][$i]["id"].')">Đặt hàng</button>';
             echo    '</div>';
         }
         ?>
     </div>
 
-    <h3 style="margin-left:20px">Samsung</h3>
+    <a style="color:black;text-decoration:none" href="http://localhost/Laptrinhweb/Home/productList/3"><h3 style="margin-left:20px; margin-top: 15px">Samsung</h3></a>
     <hr/>
     <div class="showproduct">
     <?php
@@ -63,13 +63,13 @@
             echo            '<span class="card-text">'.number_format($data["productSamsung"][$i]["price"]).'đ</span>';
             echo            '<span style="margin-left:12px; text-decoration: line-through;" class="card-text">'; if($data["productSamsung"][$i]["discount"] != 0) echo number_format($data["productSamsung"][$i]["discount"]).'đ'; echo '</span>';
             echo        '</div>';
-            echo        '<button type="button" class="btnOrder btn btn-danger">Đặt hàng</button>';
+            echo        '<button type="button" class="btnOrder btn btn-danger" onclick="addToCard('.$data["productSamsung"][$i]["id"].')">Đặt hàng</button>';
             echo    '</div>';
         }
         ?>
     </div>
 
-    <h3 style="margin-left:20px">Xiaomi</h3>
+    <a style="color:black;text-decoration:none" href="http://localhost/Laptrinhweb/Home/productList/102"><h3 style="margin-left:20px; margin-top: 15px">Xiaomi</h3></a>
     <hr/>
     <div class="showproduct">
     <?php
@@ -86,13 +86,13 @@
             echo            '<span class="card-text">'.number_format($data["productXiaomi"][$i]["price"]).'đ</span>';
             echo            '<span style="margin-left:12px; text-decoration: line-through;" class="card-text">'; if($data["productXiaomi"][$i]["discount"] != 0) echo number_format($data["productXiaomi"][$i]["discount"]).'đ'; echo '</span>';
             echo        '</div>';
-            echo        '<button type="button" class="btnOrder btn btn-danger">Đặt hàng</button>';
+            echo        '<button type="button" class="btnOrder btn btn-danger" onclick="addToCard('.$data["productXiaomi"][$i]["id"].')">Đặt hàng</button>';
             echo    '</div>';
         }
         ?>
     </div>
 
-    <h3 style="margin-left:20px">Oppo</h3>
+    <a style="color:black;text-decoration:none" href="http://localhost/Laptrinhweb/Home/productList/104"><h3 style="margin-left:20px; margin-top: 15px">Oppo</h3></a>
     <hr/>
     <div class="showproduct">
     <?php

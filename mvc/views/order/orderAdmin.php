@@ -14,7 +14,6 @@
 					<th>STT</th>
 					<th>Họ & Tên</th>
 					<th>Email</th>
-					<th>Nội Dung</th>
 					<th>Tổng Tiền</th>
 					<th>Ngày Tạo</th>
 					<th style="width: 120px"></th>
@@ -28,17 +27,16 @@
 					<th>'.$i.'</th>
 					<td><a href="http://localhost/Laptrinhweb/OrderAdmin/detailOrder/'.$data["allOrder"][$i]['id'].'">'.$data["allOrder"][$i]['fullname'].'</a></td>
 					<td>'.$data["allOrder"][$i]['email'].'</a></td>
-					<td>'.$data["allOrder"][$i]['note'].'</td>
 					<td>'.$data["allOrder"][$i]['total_money'].'</td>
-					<td>'.$data["allOrder"][$i]['order_date'].'</td>
+					<td>'.$data["allOrder"][$i]['created_at'].'</td>
 					<td style="width: 50px">';
 		if($data["allOrder"][$i]['status'] == 0) {
-			echo '<a href="http://localhost/Laptrinhweb/OrderAdmin/updateStatusOrder/'.$data["allOrder"][$i]['id'].'/1"><button  class="btn btn-sm btn-success" style="margin-bottom: 10px;">Approve</button><a/>
-			<a href="http://localhost/Laptrinhweb/OrderAdmin/updateStatusOrder/'.$data["allOrder"][$i]['id'].'/2"><button class="btn btn-sm btn-danger">Cancel</button><a/>';
+			echo '<a href="http://localhost/Laptrinhweb/OrderAdmin/updateStatusOrder/'.$data["allOrder"][$i]['id'].'/1"><button  class="btn btn-sm btn-success" style="margin-bottom: 10px;">Duyệt</button><a/>
+			<a href="http://localhost/Laptrinhweb/OrderAdmin/updateStatusOrder/'.$data["allOrder"][$i]['id'].'/2"><button class="btn btn-sm btn-danger">Hủy bỏ</button><a/>';
 		} else if($data["allOrder"][$i]['status'] == 1) {
-			echo '<label class="badge badge-success">Approved</label>';
+			echo '<label class="badge badge-success">Đã duyệt</label>';
 		} else {
-			echo '<label class="badge badge-danger">Cancel</label>';
+			echo '<label class="badge badge-danger">Đã hủy</label>';
 		}
 		echo '</td>
 				</tr>';

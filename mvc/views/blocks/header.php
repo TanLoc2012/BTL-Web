@@ -94,6 +94,7 @@
                         }
                         else{
                             echo '<a class="dropdown-item" href="http://localhost/Laptrinhweb/Home/quanlytaikhoan">Quản lý tài khoản</a>';
+                            echo '<a class="dropdown-item" href="http://localhost/Laptrinhweb/Home/quanlydonhang/'.$user["id"].'">Quản lý đơn hàng</a>';
                             echo '<a class="dropdown-item" href="http://localhost/Laptrinhweb/Login/UserLogout">Đăng xuất</a>';
                         } 
                             
