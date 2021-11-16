@@ -18,7 +18,20 @@ class FeedbackAdmin extends Controller{
     public function updateStatusFeedback($id) {
         $this->feedbackModel->updateStatus($id);
         header('Location: http://localhost/Laptrinhweb/FeedbackAdmin');
+    }
 
+    public function addFeedback() {
+        if(isset($_POST["btnReview"])){
+            if(isset($_POST["note"]))
+                $note = getPost('note');
+            $product_id = getPost('product_id');
+            if(isset($_POST["user_id"]))
+                $user_id = getPost('user_id');
+            if(!$user_id)
+                header('Location: http://localhost/Laptrinhweb/Home/productDetail/'.$product_id);
+        }
+        $this->feedbackModel->addFeedbackProduct($note, $user_id,$product_id);
+        header('Location: http://localhost/Laptrinhweb/Home/productDetail/'.$product_id);
     }
 
 }

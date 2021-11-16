@@ -30,10 +30,7 @@ class UserAdmin extends Controller{
     }
 
     public function updateUser(){
-<<<<<<< HEAD
         var_dump($_POST);
-=======
->>>>>>> de184f3d1b9b9e7bf7d73aa5c02793075ab018c3
         if(isset($_POST)){
             $id = getPost('id');
             $fullname = getPost('fullname');
@@ -41,14 +38,10 @@ class UserAdmin extends Controller{
             $phone_number = getPost('phone_number');
             $address = getPost('address');
             $password = getPost('password');
-<<<<<<< HEAD
             if(isset($_POST["role_id"])){
                 $role_id = getPost('role_id');
             }
             else $role_id = 1;
-=======
-            $role_id = getPost('role_id');
->>>>>>> de184f3d1b9b9e7bf7d73aa5c02793075ab018c3
             $result = $this->userModel->updateuser($id, $fullname, $email, $role_id, $phone_number, $address, $password);
         }
         header('Location: http://localhost/Laptrinhweb/UserAdmin'); 
