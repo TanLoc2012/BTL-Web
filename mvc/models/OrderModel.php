@@ -8,6 +8,16 @@ class OrderModel extends DB{
         return $data;
     }
 
+    public function getDoanhthu(){
+        $sql = "SELECT SUM(total_money),MONTH(created_at) 
+                FROM orders 
+                WHERE status=3
+                GROUP BY MONTH(created_at)
+                ORDER BY MONTH(created_at) ASC";
+        $data = $this->executeResult($sql);
+        return $data;
+    }
+
     public function getDetailOrder($idList){
         $sql = "select order_details.*, product.title, product.thumbnail 
                 from order_details left join product on product.id = order_details.product_id 
@@ -36,7 +46,7 @@ class OrderModel extends DB{
         $this->execute($sql);
     }
 
-    public function updateStatusOrder($id, $status=2){
+    public function updateStatusOrder($id, $status=3){
         $sql = "update orders set status = $status where id = $id";
         $this->execute($sql);
     }

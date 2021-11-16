@@ -25,8 +25,6 @@ class OrderAdmin extends Controller{
         ]);
     }
 
-    
-
     public function updateStatusOrder($id, $status){
         $this->orderModel->updateStatus($id, $status);
         header('Location: http://localhost/Laptrinhweb/OrderAdmin');
