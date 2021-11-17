@@ -111,8 +111,11 @@
             </li>
           </ul>
           <?php
-            if(isset($user))
-              echo '<a style="color:white;text-decoration:none" href="http://localhost/Laptrinhweb/Home/checkout/'.$total.'"><button type="button" class="btn btn-primary btn-block">Thanh toán</button></a>';
+            if(isset($user)){
+              echo '<a style="color:white;text-decoration:none" href="http://localhost/Laptrinhweb/Home/checkout/'.$total.'"><button type="button" class="btn btn-primary btn-block">Thanh toán khi nhận hàng</button></a>';
+              echo '<br/>';
+              echo '<a style="color:white;text-decoration:none" href="http://localhost/Laptrinhweb/Home/paymentOnline/'.$total.'"><button type="button" class="btn btn-primary btn-block">Thanh toán online</button></a>';
+            }
             else echo '<a style="color:red" href="http://localhost/Laptrinhweb/Login">Vui lòng đăng nhập để đặt hàng</a>'; 
           ?>
           

@@ -38,5 +38,11 @@ else if($data["render"] == "quanlydonhang"){
 else if($data["render"] == "orderDetail"){
     require_once "mvc/views/components/detailOrder.php";
 }
+else if($data["render"] == "paymentOnline"){
+    require_once "mvc/views/components/paymentOnline.php";
+}
+else if($data["render"] == "paymentReturn"){
+    require_once "mvc/views/components/paymentReturn.php";
+}
 
 require_once "mvc/views/blocks/footer.php";

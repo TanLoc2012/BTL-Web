@@ -40,7 +40,7 @@
 					<td></td>
 					<td></td>
 					<th>Tổng Tiền</th>
-					<th><?=$data["orderItem"]['total_money']?></th>
+					<th><?=number_format($data["orderItem"]['total_money'])?> đ</th>
 				</tr>
 			</tbody>
 		</table>

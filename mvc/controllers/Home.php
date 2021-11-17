@@ -159,6 +159,15 @@ class Home extends Controller{
             "totalMoney"=>$total
         ]);
     }
+
+    public function paymentOnline($total){
+        
+        $this->view("home",[
+            "render"=>"paymentOnline",
+            "allCategory"=>$this->allCategory,
+            "totalMoney"=>$total
+        ]);
+    }
     
     public function succesOrder(){
         

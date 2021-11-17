@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 17, 2021 lúc 06:35 AM
+-- Thời gian đã tạo: Th10 17, 2021 lúc 06:41 PM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 7.4.24
 
@@ -114,7 +114,12 @@ INSERT INTO `orders` (`id`, `fullname`, `email`, `phone`, `user_id`, `status`, `
 (25, 'Nguyễn Tấn Lộc', 'loc.nguyencse@gmail.com', '0347651292', 37, 3, 0, '462 trần hưng đạo phường 2 quận 5', '2021-01-16 18:47:52', 68640000),
 (26, 'Nguyễn Tấn Lộc', 'ntnlc81@yahoo.com', '0347651292', 37, 3, 0, '462 trần hưng đạo phường 2 quận 5', '2021-11-16 18:48:01', 169950000),
 (27, 'Nguyễn Tấn Lộc', 'loc.nguyencse2@gmail.com', '0347651292', 37, 3, 0, '462 trần hưng đạo phường 2 quận 5', '2021-12-16 18:48:13', 75450000),
-(28, 'Tan Loc', 'loc@gmail.com', '01234567894', 37, 3, 0, 'Tay Ninh', '2021-11-16 19:01:54', 1200000);
+(28, 'Tan Loc', 'loc@gmail.com', '01234567894', 37, 3, 0, 'Tay Ninh', '2021-11-16 19:01:54', 1200000),
+(29, 'Nguyễn Tấn Lộc', 'loc.nguyencse@gmail.com', '0347651292', 36, 3, 0, '462 trần hưng đạo phường 2 quận 5', '2021-11-18 00:25:33', 21990000),
+(30, 'Nguyễn Tấn Lộc', 'loc.nguyencse2@gmail.com', '0347651292', 36, 0, 0, '462 trần hưng đạo phường 2 quận 5', '2021-11-18 00:32:34', 36480000),
+(31, 'Nguyễn Tấn Lộc', 'loc.nguyencse2@gmail.com', '0347651292', 36, 0, 0, '462 trần hưng đạo phường 2 quận 5', '2021-11-18 00:32:51', 36480000),
+(32, 'Nguyễn Tấn Lộc', 'loc.nguyencse2@gmail.com', '0347651292', 36, 0, 0, '462 trần hưng đạo phường 2 quận 5', '2021-11-18 00:37:54', 36480000),
+(33, 'Nguyễn Tấn Lộc', 'loc.nguyencse2@gmail.com', '0347651292', 36, 0, 0, '462 trần hưng đạo phường 2 quận 5', '2021-11-18 00:38:49', 36480000);
 
 -- --------------------------------------------------------
 
@@ -176,7 +181,34 @@ INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `price`, `num`, `to
 (50, 25, 31, 4290000, 16, 68640000),
 (51, 26, 21, 33990000, 5, 169950000),
 (52, 27, 2, 30990000, 2, 61980000),
-(53, 27, 32, 4490000, 3, 13470000);
+(53, 27, 32, 4490000, 3, 13470000),
+(54, 29, 45, 21990000, 1, 21990000),
+(55, 30, 2, 30990000, 1, 30990000),
+(56, 30, 33, 5490000, 1, 5490000),
+(57, 31, 2, 30990000, 1, 30990000),
+(58, 31, 33, 5490000, 1, 5490000),
+(59, 32, 2, 30990000, 1, 30990000),
+(60, 32, 33, 5490000, 1, 5490000),
+(61, 33, 2, 30990000, 1, 30990000),
+(62, 33, 33, 5490000, 1, 5490000);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `payments`
+--
+
+CREATE TABLE `payments` (
+  `id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `money` float NOT NULL COMMENT 'số tiền thanh toán',
+  `note` varchar(255) DEFAULT NULL COMMENT 'ghi chú thanh toán',
+  `vnp_response_code` varchar(255) NOT NULL COMMENT 'mã phản hồi',
+  `code_vnpay` varchar(255) NOT NULL COMMENT 'mã giao dịch vnpay',
+  `code_bank` varchar(255) NOT NULL COMMENT 'mã ngân hàng',
+  `time` datetime NOT NULL COMMENT 'thời gian chuyển khoản'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -361,6 +393,13 @@ ALTER TABLE `order_details`
   ADD KEY `a` (`order_id`);
 
 --
+-- Chỉ mục cho bảng `payments`
+--
+ALTER TABLE `payments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `paymentUserid` (`user_id`);
+
+--
 -- Chỉ mục cho bảng `product`
 --
 ALTER TABLE `product`
@@ -406,13 +445,19 @@ ALTER TABLE `feedback`
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT cho bảng `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+
+--
+-- AUTO_INCREMENT cho bảng `payments`
+--
+ALTER TABLE `payments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `product`
@@ -455,6 +500,12 @@ ALTER TABLE `orders`
 ALTER TABLE `order_details`
   ADD CONSTRAINT `a` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
   ADD CONSTRAINT `order_details_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
+
+--
+-- Các ràng buộc cho bảng `payments`
+--
+ALTER TABLE `payments`
+  ADD CONSTRAINT `paymentUserid` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --
 -- Các ràng buộc cho bảng `product`

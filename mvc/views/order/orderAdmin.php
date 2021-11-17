@@ -38,6 +38,11 @@
 		} else if($data["allOrder"][$i]['status'] == 2){
 			echo '<label class="badge badge-danger">Đã hủy</label>';
 		}
+		else if($data["allOrder"][$i]['status'] == 4){
+			echo '<a href="http://localhost/Laptrinhweb/OrderAdmin/updateStatusOrder/'.$data["allOrder"][$i]['id'].'/1"><button  class="btn btn-sm btn-success" style="margin-bottom: 10px;">Duyệt</button><a/>
+			<a href="http://localhost/Laptrinhweb/OrderAdmin/updateStatusOrder/'.$data["allOrder"][$i]['id'].'/2"><button class="btn btn-sm btn-danger">Hủy bỏ</button><a/>';
+			echo '<label class="badge badge-danger">Đã thanh toán</label>';
+		}	
 		else echo '<label class="badge badge-danger">Hoàn thành giao dịch</label>';
 		echo '</td>
 				</tr>';
