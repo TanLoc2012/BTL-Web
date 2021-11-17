@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 27, 2021 lúc 08:49 AM
+-- Thời gian đã tạo: Th10 17, 2021 lúc 06:35 AM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 7.4.24
 
@@ -42,9 +42,7 @@ INSERT INTO `category` (`id`, `name`) VALUES
 (3, 'SAMSUNG'),
 (102, 'Xiaomi'),
 (104, 'Oppo'),
-(105, 'Nokia'),
-(106, 'Realme'),
-(107, 'Vivo');
+(105, 'Nokia');
 
 -- --------------------------------------------------------
 
@@ -54,12 +52,9 @@ INSERT INTO `category` (`id`, `name`) VALUES
 
 CREATE TABLE `feedback` (
   `id` int(11) NOT NULL,
-  `firstname` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `lastname` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `phone_number` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `subject_name` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `note` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `product_id` int(11) NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `status` int(11) DEFAULT 0
@@ -69,22 +64,19 @@ CREATE TABLE `feedback` (
 -- Đang đổ dữ liệu cho bảng `feedback`
 --
 
-INSERT INTO `feedback` (`id`, `firstname`, `lastname`, `email`, `phone_number`, `subject_name`, `note`, `created_at`, `updated_at`, `status`) VALUES
-(1, 'Nguyen', 'Loc', 'loc.nguyen@gmail.com', '1234567891', 'asdsadgvsdvsd', 'dsafsadfdsafdsaf', '2021-10-24 14:18:38', '2021-10-24 14:26:50', 0),
-(2, 'adfasd', 'sadasd', 'loc.nguyen@gmail.com', '2345678912', 'sadasd', 'asdasd', '2021-10-24 14:18:38', '2021-10-25 03:36:51', 1),
-(3, '123123', '123123', 'loc.nguye2n@gmail.com', '2345678654', '123123asd', 'asfdasd', '2021-10-24 14:18:38', '2021-10-24 14:18:38', 1);
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `galery`
---
-
-CREATE TABLE `galery` (
-  `id` int(11) NOT NULL,
-  `product_id` int(11) DEFAULT NULL,
-  `thumbnail` varchar(500) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+INSERT INTO `feedback` (`id`, `note`, `user_id`, `product_id`, `created_at`, `updated_at`, `status`) VALUES
+(4, 'Tốt, chất lượng', 37, 21, '2021-11-16 07:20:49', '2021-11-16 07:20:49', 0),
+(5, 'Ngon', 44, 21, '2021-11-16 07:26:49', '2021-11-16 07:26:49', 0),
+(6, 'asdasd', 45, 21, '2021-11-16 08:11:58', '2021-11-16 08:11:58', 0),
+(7, 'asdasd', 45, 33, '2021-11-16 08:12:20', '2021-11-16 08:12:20', 0),
+(8, 'Tốt', 45, 33, '2021-11-16 08:13:44', '2021-11-16 12:36:38', 1),
+(9, 'cvxv', 36, 33, '2021-11-16 08:14:07', '2021-11-16 12:36:37', 1),
+(11, 'Ngon', 36, 33, '2021-11-16 15:53:41', '2021-11-16 15:55:12', 1),
+(34, 'ca', 44, 1, '2021-11-16 16:23:08', '2021-11-16 18:27:18', 1),
+(35, 'Chủ đề contact- Nội dung contact', 37, 1, '2021-11-16 16:23:43', '2021-11-16 16:23:43', 0),
+(36, 'Chủ đề contact1- Nội dung contact1', 37, 48, '2021-11-16 16:26:30', '2021-11-16 16:26:30', 0),
+(37, 'Chủ đề contact1- Nội dung contact1', 37, 48, '2021-11-16 16:26:36', '2021-11-16 16:26:36', 0),
+(38, 'Chủ đề contact1223- Nội dung contact12323', 37, 48, '2021-11-16 16:26:41', '2021-11-16 16:26:41', 0);
 
 -- --------------------------------------------------------
 
@@ -94,26 +86,35 @@ CREATE TABLE `galery` (
 
 CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `fullname` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `phone_number` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `note` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `order_date` datetime DEFAULT NULL,
-  `status` int(11) DEFAULT NULL,
-  `total_money` int(11) DEFAULT NULL
+  `fullname` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 0,
+  `deleted` int(11) NOT NULL DEFAULT 0,
+  `address` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `total_money` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `orders`
 --
 
-INSERT INTO `orders` (`id`, `user_id`, `fullname`, `email`, `phone_number`, `address`, `note`, `order_date`, `status`, `total_money`) VALUES
-(1, 35, 'Loc', 'asdas@gmail.com', '1234567891', 'asdasdasdasd', NULL, '2021-10-24 13:01:01', 2, 30900000),
-(2, 39, 'asdasdasd', 'asdsa@gmail.com', '2345678912', 'asdasdsadd', NULL, '2021-10-24 13:01:01', 2, 543900000),
-(3, 38, '12213123', '213213213@gmail.com', '9876543212', 'asdasdasd', NULL, '2021-10-24 13:02:16', 2, 20000),
-(4, 36, '324234234', '43232432324@gmail.com', '2345678912', '312312132asd', NULL, '2021-10-24 13:02:16', 1, 33800000);
+INSERT INTO `orders` (`id`, `fullname`, `email`, `phone`, `user_id`, `status`, `deleted`, `address`, `created_at`, `total_money`) VALUES
+(16, 'Nguyễn Tấn Lộc', 'loc.nguyencse2@gmail.com', '0347651292', 36, 3, 0, '462 trần hưng đạo phường 2 quận 5', '2021-10-16 15:25:06', 14270000),
+(17, 'Nguyễn', 'ntnlc81@yahoo.com', '034765', 36, 3, 0, '462 trần hưn', '2021-09-16 15:35:11', 17860000),
+(18, 'Nguyễn Tấn Lộc', 'loc.nguyencse1@gmail.com', '0347651292', 36, 3, 0, '462 trần hưng đạo phường 2 quận 5', '2021-08-16 15:54:28', 122930000),
+(19, 'Nguyễn Tấn Lộc', 'loc.nguyencse3@gmail.com', '0347651292', 37, 3, 0, '462 trần hưng đạo phường 2 quận 5', '2021-07-16 18:44:43', 64820000),
+(20, 'Nguyễn Tấn Lộc', 'loc.nguyencse2@gmail.com', '0347651292', 37, 3, 0, '462 trần hưng đạo phường 2 quận 5', '2021-06-16 18:46:17', 14270000),
+(21, 'Nguyễn Tấn Lộc', 'loc.nguyencse2@gmail.com', '0347651292', 37, 3, 0, '462 trần hưng đạo phường 2 quận 5', '2021-05-16 18:46:27', 123880000),
+(22, 'Nguyễn Tấn Lộc', 'loc.nguyencse@gmail.com', '0347651292', 37, 3, 0, '462 trần hưng đạo phường 2 quận 5', '2021-04-16 18:46:41', 154280000),
+(23, 'Nguyễn Tấn Lộc', 'loc.nguyencse@gmail.com', '0347651292', 37, 3, 0, '462 trần hưng đạo phường 2 quận 5', '2021-03-16 18:46:54', 93720000),
+(24, 'Nguyễn Tấn Lộc', 'admin@gmail.com', '0347651292', 37, 3, 0, '462 trần hưng đạo phường 2 quận 5', '2021-02-16 18:47:37', 102860000),
+(25, 'Nguyễn Tấn Lộc', 'loc.nguyencse@gmail.com', '0347651292', 37, 3, 0, '462 trần hưng đạo phường 2 quận 5', '2021-01-16 18:47:52', 68640000),
+(26, 'Nguyễn Tấn Lộc', 'ntnlc81@yahoo.com', '0347651292', 37, 3, 0, '462 trần hưng đạo phường 2 quận 5', '2021-11-16 18:48:01', 169950000),
+(27, 'Nguyễn Tấn Lộc', 'loc.nguyencse2@gmail.com', '0347651292', 37, 3, 0, '462 trần hưng đạo phường 2 quận 5', '2021-12-16 18:48:13', 75450000),
+(28, 'Tan Loc', 'loc@gmail.com', '01234567894', 37, 3, 0, 'Tay Ninh', '2021-11-16 19:01:54', 1200000);
 
 -- --------------------------------------------------------
 
@@ -135,10 +136,47 @@ CREATE TABLE `order_details` (
 --
 
 INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `price`, `num`, `total_money`) VALUES
-(1, 1, 3, 30900000, 1, 30900000),
-(2, 2, 3, 20400000, 2, 20400000),
-(3, 2, 5, 33990000, 1, 33990000),
-(4, 4, 4, 16900000, 2, 33800000);
+(13, 16, 31, 4290000, 1, 4290000),
+(14, 16, 32, 4490000, 1, 4490000),
+(15, 16, 33, 5490000, 1, 5490000),
+(16, 17, 30, 3590000, 1, 3590000),
+(17, 17, 31, 4290000, 1, 4290000),
+(18, 17, 32, 4490000, 1, 4490000),
+(19, 17, 33, 5490000, 1, 5490000),
+(20, 18, 1, 30900000, 3, 92700000),
+(21, 18, 30, 3590000, 2, 7180000),
+(22, 18, 31, 4290000, 2, 8580000),
+(23, 18, 32, 4490000, 2, 8980000),
+(24, 18, 33, 5490000, 1, 5490000),
+(25, 19, 4, 28000000, 1, 28000000),
+(26, 19, 6, 23990000, 1, 23990000),
+(27, 19, 30, 3590000, 1, 3590000),
+(28, 19, 31, 4290000, 1, 4290000),
+(29, 19, 35, 4950000, 1, 4950000),
+(30, 20, 31, 4290000, 1, 4290000),
+(31, 20, 32, 4490000, 1, 4490000),
+(32, 20, 33, 5490000, 1, 5490000),
+(33, 21, 1, 30900000, 1, 30900000),
+(34, 21, 2, 30990000, 1, 30990000),
+(35, 21, 4, 28000000, 1, 28000000),
+(36, 21, 21, 33990000, 1, 33990000),
+(37, 22, 1, 30900000, 2, 61800000),
+(38, 22, 2, 30990000, 1, 30990000),
+(39, 22, 4, 28000000, 2, 56000000),
+(40, 22, 33, 5490000, 1, 5490000),
+(41, 23, 2, 30990000, 1, 30990000),
+(42, 23, 21, 33990000, 1, 33990000),
+(43, 23, 31, 4290000, 1, 4290000),
+(44, 23, 32, 4490000, 3, 13470000),
+(45, 23, 33, 5490000, 2, 10980000),
+(46, 24, 1, 30900000, 1, 30900000),
+(47, 24, 2, 30990000, 2, 61980000),
+(48, 24, 32, 4490000, 1, 4490000),
+(49, 24, 33, 5490000, 1, 5490000),
+(50, 25, 31, 4290000, 16, 68640000),
+(51, 26, 21, 33990000, 5, 169950000),
+(52, 27, 2, 30990000, 2, 61980000),
+(53, 27, 32, 4490000, 3, 13470000);
 
 -- --------------------------------------------------------
 
@@ -183,9 +221,9 @@ INSERT INTO `product` (`id`, `category_id`, `title`, `price`, `discount`, `thumb
 (18, 3, 'Samsung Galaxy Z Flip3 5G 256GB', 25990000, 26990000, 'https://cdn.cellphones.com.vn/media/catalog/product/cache/7/image/1000x/040ec09b1e35df139433887a97daa66f/8/0/800x800_flip_3_black_3.png', NULL, '2021-10-22 12:47:54', '2021-10-22 12:47:54', 0),
 (19, 3, 'Samsung Galaxy A52', 8750000, 9290000, 'https://cdn.cellphones.com.vn/media/catalog/product/cache/7/image/1000x/040ec09b1e35df139433887a97daa66f/s/a/samsung-galaxy-a52-26.jpg', NULL, '2021-10-22 12:47:54', '2021-10-22 12:47:54', 0),
 (20, 2, 'iPhone 13 | Chính hãng VN/A', 24990000, NULL, 'https://cdn.cellphones.com.vn/media/catalog/product/cache/7/image/9df78eab33525d08d6e5fb8d27136e95/i/p/ip13-pro_2.jpg', NULL, '2021-10-22 12:58:32', '2021-10-22 12:58:32', 0),
-(21, 2, 'iPhone 13 Pro Max | Chính hãng VN/A', 33990000, NULL, 'https://cdn.cellphones.com.vn/media/catalog/product/cache/7/image/9df78eab33525d08d6e5fb8d27136e95/i/p/iphone_13-_pro-5_4.jpg', NULL, '2021-10-22 12:58:32', '2021-10-22 12:58:32', 0),
-(22, 2, 'iPhone 11 I Chính hãng VN/A', 16900000, 18000000, 'https://cdn.cellphones.com.vn/media/catalog/product/cache/7/image/1000x/040ec09b1e35df139433887a97daa66f/l/a/layer_20.jpg', NULL, '2021-10-22 12:58:32', '2021-10-22 12:58:32', 0),
-(28, 1, 'Vsmart Star 5', 2690000, 0, 'https://cdn.cellphones.com.vn/media/catalog/product/cache/7/image/1000x/040ec09b1e35df139433887a97daa66f/v/s/vsmart-star-5-3_3.jpg', 'Miễn phí 4G tốc độ cao 10GB/ Tháng trong 18 tháng - Công nghệ Vsim ảo đầu tiên\r\nCấu hình vượt trội, trải nghiệm mạnh mẽ - Chip Helio G35 8 nhân, RAM 3GB\r\nMàn hình siêu rộng, xem phim thả ga - Màn hình IPS LCD 6.528 inch, viền siêu mỏng\r\nSử dụng cả ngày dài - Pin 5000mAh, sạc nhanh 15W', '2021-10-25 11:30:19', '2021-10-25 11:30:19', 0),
+(21, 2, 'iPhone 13 Pro Max | Chính hãng VN/A', 33990000, NULL, 'https://cdn.cellphones.com.vn/media/catalog/product/cache/7/image/9df78eab33525d08d6e5fb8d27136e95/i/p/iphone_13-_pro-5_4.jpg', 'Miễn phí 4G tốc độ cao 10GB/ Tháng trong 18 tháng \n- Công nghệ Vsim ảo đầu tiên\nCấu hình vượt trội, trải nghiệm mạnh mẽ \n- Chip Helio G35 8 nhân, RAM 3GB\nMàn hình siêu rộng, xem phim thả ga - Màn hình IPS LCD 6.528 inch, viền siêu mỏng\nSử dụng cả ngày dài - Pin 5000mAh, sạc nhanh 15W', '2021-10-22 12:58:32', '2021-10-22 12:58:32', 0),
+(22, 2, 'iPhone 11 I Chính hãng VN/A', 16900000, 18000000, 'https://cdn.cellphones.com.vn/media/catalog/product/cache/7/image/1000x/040ec09b1e35df139433887a97daa66f/l/a/layer_20.jpg', 'Miễn phí 4G tốc độ cao 10GB/ Tháng trong 18 tháng \n- Công nghệ Vsim ảo đầu tiên\nCấu hình vượt trội, trải nghiệm mạnh mẽ \n- Chip Helio G35 8 nhân, RAM 3GB\nMàn hình siêu rộng, xem phim thả ga - Màn hình IPS LCD 6.528 inch, viền siêu mỏng\nSử dụng cả ngày dài - Pin 5000mAh, sạc nhanh 15W', '2021-10-22 12:58:32', '2021-10-22 12:58:32', 0),
+(28, 1, 'Vsmart Star 5', 2690000, 0, 'https://cdn.cellphones.com.vn/media/catalog/product/cache/7/image/1000x/040ec09b1e35df139433887a97daa66f/v/s/vsmart-star-5-3_3.jpg', 'Miễn phí 4G tốc độ cao 10GB/ Tháng trong 18 tháng \n- Công nghệ Vsim ảo đầu tiên\nCấu hình vượt trội, trải nghiệm mạnh mẽ \n- Chip Helio G35 8 nhân, RAM 3GB\nMàn hình siêu rộng, xem phim thả ga - Màn hình IPS LCD 6.528 inch, viền siêu mỏng\nSử dụng cả ngày dài - Pin 5000mAh, sạc nhanh 15W', '2021-10-25 11:30:19', '2021-10-25 11:30:19', 0),
 (29, 1, 'Vsmart Joy 4', 3290000, 0, 'https://cdn.cellphones.com.vn/media/catalog/product/cache/7/image/1000x/040ec09b1e35df139433887a97daa66f/v/s/vsmart-joy-4_2_.png', NULL, '2021-10-25 11:34:50', '2021-10-25 11:34:50', 0),
 (30, 1, 'Vsmart Joy 4 4GB', 3590000, 0, 'https://cdn.cellphones.com.vn/media/catalog/product/cache/7/thumbnail/100x/9df78eab33525d08d6e5fb8d27136e95/v/s/vsmart-joy-4_2__2.png', NULL, '2021-10-25 11:34:50', '2021-10-25 11:34:50', 0),
 (31, 1, 'Vsmart Live 4', 4290000, 0, 'https://cdn.cellphones.com.vn/media/catalog/product/cache/7/thumbnail/100x/9df78eab33525d08d6e5fb8d27136e95/v/s/vsmart-live-_4_2_.jpg', NULL, '2021-10-25 11:34:50', '2021-10-25 11:34:50', 0),
@@ -202,7 +240,10 @@ INSERT INTO `product` (`id`, `category_id`, `title`, `price`, `discount`, `thumb
 (42, 104, 'OPPO Reno6 Z 5G', 9190000, 9490000, 'https://cdn.cellphones.com.vn/media/catalog/product/cache/7/thumbnail/100x/9df78eab33525d08d6e5fb8d27136e95/o/p/oppo_reno6.jpg', '', NULL, NULL, 0),
 (43, 104, 'Oppo A54', 4350000, 4690000, 'https://cdn.cellphones.com.vn/media/catalog/product/cache/7/thumbnail/100x/9df78eab33525d08d6e5fb8d27136e95/o/p/oppo-a54-4g-blue-200x200.jpg', '', NULL, NULL, 0),
 (44, 104, 'Oppo A73', 5190000, 5490000, 'https://cdn.cellphones.com.vn/media/catalog/product/cache/7/thumbnail/100x/9df78eab33525d08d6e5fb8d27136e95/o/p/oppo-a73_1_.jpg', '', NULL, NULL, 0),
-(45, 104, 'OPPO Find X3 Pro 5G', 21990000, 26990000, 'https://cdn.cellphones.com.vn/media/catalog/product/cache/7/thumbnail/100x/9df78eab33525d08d6e5fb8d27136e95/o/p/oppo-find-x3-pro-5g-3_2.jpg', '', NULL, NULL, 0);
+(45, 104, 'OPPO Find X3 Pro 5G', 21990000, 26990000, 'https://cdn.cellphones.com.vn/media/catalog/product/cache/7/thumbnail/100x/9df78eab33525d08d6e5fb8d27136e95/o/p/oppo-find-x3-pro-5g-3_2.jpg', '', NULL, NULL, 0),
+(46, 2, NULL, NULL, NULL, NULL, NULL, '2021-11-16 16:24:20', '2021-11-16 16:24:20', 1),
+(47, 2, 'áda', 30900000, 32990000, 'aq', 'aaq', '2021-11-16 16:25:24', '2021-11-16 16:25:24', 1),
+(48, 104, NULL, NULL, NULL, NULL, NULL, '2021-11-16 16:25:58', '2021-11-16 16:25:58', 1);
 
 -- --------------------------------------------------------
 
@@ -242,9 +283,14 @@ CREATE TABLE `tokens` (
 INSERT INTO `tokens` (`user_id`, `token`, `created_at`) VALUES
 (37, '0e5f3d0c7739d45fe818920b2415368b', '2021-10-26 18:08:35'),
 (37, '2d770df66e03ba6a60512dad1d6932bb', '2021-10-26 19:40:05'),
-(37, 'bde8f4a07c9d6626c89d04b7a1085c9b', '2021-10-27 07:35:32'),
+(37, 'b694f06e17a35a50cdc8eed94db0feca', '2021-10-27 09:58:49'),
 (37, 'c9476ebfb8ae818ef86dfb664018c914', '2021-10-26 19:54:18'),
-(37, 'edc256237487cec4d5c5e1835cc67817', '2021-10-26 19:38:24');
+(37, 'edc256237487cec4d5c5e1835cc67817', '2021-10-26 19:38:24'),
+(46, '20d040af7ed247629fcfff85b9927e57', '2021-11-07 11:27:56'),
+(46, '5c860e23d929759f378139e36a2e5b8f', '2021-11-15 08:57:27'),
+(46, '9cc0df707a7cccf78385d7093b946422', '2021-11-16 18:57:38'),
+(46, 'aa33bd2176ebacb83e9713f68c6f0a83', '2021-11-15 19:58:47'),
+(46, 'f2cc2c1bb5a597dd045a605409165f63', '2021-11-15 20:06:39');
 
 -- --------------------------------------------------------
 
@@ -271,14 +317,14 @@ INSERT INTO `user` (`id`, `fullname`, `email`, `phone_number`, `address`, `passw
 (35, 'Nguyễn Tấn Lộc', 'loc.nguyencse1@gmail.com', '0347651292', '462 trần hưng đạo phường 2 quận 5', 'b4cbd48886a5331c5eb2fedadabe311c', 2, 0),
 (36, 'Nguyễn Tấn Lộc', 'loc.nguyencse2@gmail.com', '0347651292', '462 trần hưng đạo phường 2 quận 5', 'b4cbd48886a5331c5eb2fedadabe311c', 1, 0),
 (37, 'Nguyễn Tấn Lộc', 'loc.nguyencse3@gmail.com', '0347651292', '462 trần hưng đạo phường 2 quận 5', 'b4cbd48886a5331c5eb2fedadabe311c', 1, 0),
-(38, 'Nguyễn Tấn Lộc', 'loc.nguyencse4@gmail.com', '0347651292', '462 trần hưng đạo phường 2 quận 5', 'b4cbd48886a5331c5eb2fedadabe311c', 1, 0),
+(38, 'Nguyễn Tấn Lộc', 'loc.nguyencse8@gmail.com', '0347651292', '462 trần hưng đạo phường 2 quận 5', 'b4cbd48886a5331c5eb2fedadabe311c', 1, 0),
 (39, 'Nguyễn Tấn Lộc', 'loc.nguyencse5@gmail.com', '0347651292', '462 trần hưng đạo phường 2 quận 5', 'b4cbd48886a5331c5eb2fedadabe311c', 1, 0),
 (40, '213312321', 'ntnlc81@yahoo.com', '0347651292', '462 trần hưng đạo phường 2 quận 5', '2343b6a811d442d9b97f6fcd6bcbcc15', 1, 1),
 (41, 'Nguyễn Tấn Lộc12', 'ntnlc8112@yahoo.com', '0347651292', '462 trần hưng đạo phường 2 quận 5', 'b4cbd48886a5331c5eb2fedadabe311c', 1, 0),
 (42, 'Nguyễn Tấn Lộc12', 'loc.nguyencse12@gmail.com', '0347651292', '462 trần hưng đạo phường 2 quận 5', 'b4cbd48886a5331c5eb2fedadabe311c', 1, 0),
-(43, 'Nguyễn Tấn Lộc132', 'loc.nguyencs123e@gmail.com', '0347651292', '462 trần hưng đạo phường 2 quận 5', 'e5cec731ca0d779baf1250fb20d63c61', 1, 0),
-(44, 'Nguyễn Tấn Lộc132', 'loc.nguyenc132s123e@gmail.com', '0347651292', '462 trần hưng đạo phường 2 quận 5', '43c4e9a12b3acc364057ee4799a1d781', 1, 0),
-(45, 'Nguyễn Tấn Lộc132', 'loc.nguyenc133212s123e@gmail.com', '0347651292', '462 trần hưng đạo phường 2 quận 5', '105faa207fab8ef35d8434e80d11ff38', 1, 0),
+(43, 'Nguyễn Tấn Lộc132', 'loc.nguyencs123e@gmail.com', '0347651292', '462 trần hưng đạo phường 2 quận 5', 'e5cec731ca0d779baf1250fb20d63c61', 1, 1),
+(44, 'Nguyễn Tấn Lộc132', 'loc.nguyenc132s123e@gmail.com', '0347651292', '462 trần hưng đạo phường 2 quận 5', '43c4e9a12b3acc364057ee4799a1d781', 1, 1),
+(45, 'Nguyễn Tấn Lộc132', 'loc.nguyenc133212s123e@gmail.com', '0347651292', '462 trần hưng đạo phường 2 quận 5', '105faa207fab8ef35d8434e80d11ff38', 1, 1),
 (46, 'admin', 'admin@gmail.com', '9876543212', 'Tây Ninh', 'b4cbd48886a5331c5eb2fedadabe311c', 2, 0);
 
 --
@@ -295,21 +341,16 @@ ALTER TABLE `category`
 -- Chỉ mục cho bảng `feedback`
 --
 ALTER TABLE `feedback`
-  ADD PRIMARY KEY (`id`);
-
---
--- Chỉ mục cho bảng `galery`
---
-ALTER TABLE `galery`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `product_id` (`product_id`);
+  ADD KEY `userreview` (`user_id`),
+  ADD KEY `productreview` (`product_id`);
 
 --
 -- Chỉ mục cho bảng `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD KEY `fk_orderSuccess` (`user_id`);
 
 --
 -- Chỉ mục cho bảng `order_details`
@@ -317,7 +358,7 @@ ALTER TABLE `orders`
 ALTER TABLE `order_details`
   ADD PRIMARY KEY (`id`),
   ADD KEY `product_id` (`product_id`),
-  ADD KEY `order_id` (`order_id`);
+  ADD KEY `a` (`order_id`);
 
 --
 -- Chỉ mục cho bảng `product`
@@ -359,31 +400,25 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT cho bảng `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT cho bảng `galery`
---
-ALTER TABLE `galery`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT cho bảng `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT cho bảng `role`
@@ -402,29 +437,36 @@ ALTER TABLE `user`
 --
 
 --
--- Các ràng buộc cho bảng `galery`
+-- Các ràng buộc cho bảng `feedback`
 --
-ALTER TABLE `galery`
-  ADD CONSTRAINT `galery_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
+ALTER TABLE `feedback`
+  ADD CONSTRAINT `productreview` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`),
+  ADD CONSTRAINT `userreview` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --
 -- Các ràng buộc cho bảng `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+  ADD CONSTRAINT `fk_orderSuccess` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --
 -- Các ràng buộc cho bảng `order_details`
 --
 ALTER TABLE `order_details`
-  ADD CONSTRAINT `order_details_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`),
-  ADD CONSTRAINT `order_details_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`);
+  ADD CONSTRAINT `a` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
+  ADD CONSTRAINT `order_details_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
 
 --
 -- Các ràng buộc cho bảng `product`
 --
 ALTER TABLE `product`
   ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`);
+
+--
+-- Các ràng buộc cho bảng `tokens`
+--
+ALTER TABLE `tokens`
+  ADD CONSTRAINT `fk_token` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --
 -- Các ràng buộc cho bảng `user`
