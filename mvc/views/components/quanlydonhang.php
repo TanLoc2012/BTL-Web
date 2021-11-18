@@ -25,9 +25,10 @@
         if($data["orderItem"][$i]["status"] == 0)
             echo 'Chờ duyệt';
         else if($data["orderItem"][$i]["status"] == 1) echo "Đang giao hàng";
+        else if($data["orderItem"][$i]["status"] == 4) echo "Đã thanh toán";
         else echo "Giao dịch hoàn tất!";
         echo '</td>';
-        if($data["orderItem"][$i]["status"] != 2)
+        if($data["orderItem"][$i]["status"] != 3)
           echo '<td><a href="http://localhost/Laptrinhweb/Home/confirmOrder/'.$data["orderItem"][$i]["id"].'/'.$user["id"].'"><button class="btn btn-danger">Đã nhận hàng</button><a/></td>
       </tr>';
     }

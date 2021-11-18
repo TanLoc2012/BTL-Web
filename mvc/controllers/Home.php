@@ -243,11 +243,11 @@ class Home extends Controller{
         ]);
     }
 
-    public function contact(){
-
+    public function contact($alertSuccess=0){
         $this->view("home",[
             "render"=>"contact",
-            "allCategory"=>$this->allCategory
+            "allCategory"=>$this->allCategory,
+            "alertSuccess"=>$alertSuccess
         ]);
     }
 

@@ -1,7 +1,11 @@
 <?php
     require_once "mvc/utility/utility.php";
-    $user = getUserToken();
-    
+    if(isset($data["render"])){
+        if($data["render"]=="quanlytaikhoan")
+            $user = getUserToken(1);
+        else $user = getUserToken();
+    }
+    else $user = getUserToken();
     if($user != null) {
         $fullname = $user["fullname"];
     }

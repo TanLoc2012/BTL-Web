@@ -43,8 +43,12 @@ class FeedbackAdmin extends Controller{
                 $user_id = getPost('user_id');
             if(!$user_id)
                 header('Location: http://localhost/Laptrinhweb/Home/contact');
-            $this->feedbackModel->addContact($note, $user_id);
-            header('Location: Location: http://localhost/Laptrinhweb/Home/contact');
+            else if($subject == "" || $message== "")
+                header('Location: http://localhost/Laptrinhweb/Home/contact');
+            else {
+                $this->feedbackModel->addContact($note, $user_id);
+                header('Location: http://localhost/Laptrinhweb/Home/contact/1');
+            }
         }
         
     }

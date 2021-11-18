@@ -1,3 +1,8 @@
+<?php
+$user = getUserToken(1);
+var_dump($user);
+?>
+
 <div  class="row" style="margin: 70px auto 0;width:50%">
 	<div class="col-md-12 table-responsive">
 		<h3> Quản lý tài khoản</h3>
@@ -11,6 +16,7 @@
 					  <label for="usr">Họ & Tên:</label>
 					  <input required="true" type="text" class="form-control" id="usr" name="fullname" value="<?=$user["fullname"]?>">
 					  <input type="text" name="id" value="<?=$user["id"]?>" hidden="true">
+					  <input type="text" name="updateInfoUser" value="1" hidden="true">
 					</div>
 					<div class="form-group">
 					  <label for="email">Email:</label>

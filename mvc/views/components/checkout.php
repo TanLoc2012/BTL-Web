@@ -50,7 +50,7 @@
         <input type="email" name="email" id="form19" class="form-control" placeholder="Email">
       </div>
 
-      <a style="color:white;text-decoration:none" ><button name="btnCheckout" class="btn btn-primary btn-block">Đặt hàng</button></a>
+      <a style="color:white;text-decoration:none" ><button onclick=checkOrderCheckout() name="btnCheckout" class="btn btn-primary btn-block">Đặt hàng</button></a>
 </form>
 
     </div>
@@ -96,3 +96,14 @@
 </div>
 <!-- Card -->
 <!--Section: Block Content-->
+<script type="text/javascript">
+    function checkOrderCheckout() {
+        var fullname = document.getElementById("form11").value;
+        var email = document.getElementById("form19").value;
+        var phone_number = document.getElementById("form18").value;
+        var address = document.getElementById("form14").value;
+
+        if(fullname == '' || email == '' || phone_number == ''|| address == ''  ) 
+          alert("Vui lòng nhập đủ thông tin!!!");
+    }
+</script>

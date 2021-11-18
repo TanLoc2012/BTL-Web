@@ -30,7 +30,6 @@ class UserAdmin extends Controller{
     }
 
     public function updateUser(){
-        var_dump($_POST);
         if(isset($_POST)){
             $id = getPost('id');
             $fullname = getPost('fullname');
@@ -38,13 +37,17 @@ class UserAdmin extends Controller{
             $phone_number = getPost('phone_number');
             $address = getPost('address');
             $password = getPost('password');
+            $location = getPost('updateInfoUser');
             if(isset($_POST["role_id"])){
                 $role_id = getPost('role_id');
             }
             else $role_id = 1;
             $result = $this->userModel->updateuser($id, $fullname, $email, $role_id, $phone_number, $address, $password);
+            if($location == 1){
+                header('Location: http://localhost/Laptrinhweb/Home/quanlytaikhoan'); 
+            }
+            else header('Location: http://localhost/Laptrinhweb/UserAdmin'); 
         }
-        header('Location: http://localhost/Laptrinhweb/UserAdmin'); 
     }
 
     public function viewInsertUser(){
