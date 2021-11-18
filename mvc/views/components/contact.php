@@ -1,6 +1,17 @@
 <!--Section: Contact v.2-->
-<section id="wrapper" class="mb-4">
+<p class="d-none" id="alertSuccess"><?=$data["alertSuccess"]?></p>
 
+    
+<div style="margin-top:70px" id="map-container-google-2" class="z-depth-1-half map-container" style="height: 500px">
+  <iframe src="https://maps.google.com/maps?q=chicago&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
+    style="border:0" allowfullscreen></iframe>
+</div>
+
+<section  id="wrapper" class="mb-4">
+    <!--Google map-->
+
+
+<!--Google Maps-->
     <!--Section heading-->
     <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
     <!--Section description-->
@@ -44,7 +55,7 @@
                 </div>
                 <!--Grid row-->
                 <div style="margin-top:10px" class="text-center text-md-left">
-                    <button class="btn btn-primary" name="btnContact">Gửi</button>
+                    <button class="btn btn-primary" onclick=checkBtnContact() name="btnContact">Gửi</button>
                 </div>
 
             </form>
@@ -75,3 +86,15 @@
 
 </section>
 <!--Section: Contact v.2-->
+<script type="text/javascript">
+    var alertSuccess = document.getElementById("alertSuccess").innerHTML;
+    if(alertSuccess == 1) 
+        alert("Bạn đã gửi thành công!!!");
+
+    function checkBtnContact() {
+        var subject = document.getElementById("subject").value;
+        var message = document.getElementById("message").value;
+        if(subject == '' || message == '') 
+          alert("Vui lòng nhập đủ thông tin!!!");
+    }
+</script>
