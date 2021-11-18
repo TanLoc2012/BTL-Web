@@ -56,14 +56,28 @@
   </div>
   <div>
     <a id="link_login" href="http://localhost/Laptrinhweb/Login">Tôi đã có tài khoản</a>
-    <button type="submit" name="btnRegister" class="btn btn-primary">Register</button>
+    <button type="submit" onclick="checkRegister()" name="btnRegister" class="btn btn-primary">Register</button>
     <a id="link_register" href="http://localhost/Laptrinhweb/Home">Trở về trang chủ</a>
   </div>
   
 </form>
+
+<script type="text/javascript">
+    function checkRegister() {
+        var fullname = document.getElementById("fullname").value;
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        var phone_number = document.getElementById("phone_number").value;
+        var address = document.getElementById("address").value;
+
+        if(fullname == '' || email == '' || password == ''|| phone_number == ''|| address == ''  ) 
+          alert("Vui lòng nhập đủ thông tin!!!");
+        else if(password.length < 6)
+          alert("Vui lòng nhập mật khẩu có ít nhất 6 ký tự!!!");
+    }
+</script>
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
   <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js" type="text/javascript"></script>
-<script src="http://localhost/Laptrinhweb/public/js/validate.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>

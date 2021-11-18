@@ -92,12 +92,12 @@
           <textarea name="note" id="form76" class="md-textarea form-control pr-6" rows="4"></textarea>
         </div>
         <div class="text-right pb-2">
-          <button class="btn btn-primary" name="btnReview">Thêm bài đánh giá</button>
+          <button class="btn btn-primary" name="btnReview" onclick="checkContentFeedback()">Thêm bài đánh giá</button>
         </div>
       </form>
     </div>
   </div>
-
+       
 </div>
 
 <h3 style="color:red; margin-top:10px">Các sản phẩm cùng danh mục</h3>
@@ -120,9 +120,19 @@
         echo    '</div>';
     }
 ?>
+ <p id="user_id"><?php if(isset($user["id"])) echo $user["id"]; else echo '123'; ?></p>
 </div>
 </div>
 <script type="text/javascript">
+  function checkContentFeedback(){
+    var note = document.getElementById("form76").value;
+    var userId = document.getElementById("user_id").innerHTML;
+    if(userId == '123')
+      alert("Vui lòng đăng ngập để đánh giá!!!");
+    else if(note == "")
+      alert("Vui lòng nhập nội dung đánh giá!!!");
+  }
+
   function addToCard(productId) {
     var action = "add";
     $.ajax({

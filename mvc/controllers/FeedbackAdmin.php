@@ -27,9 +27,10 @@ class FeedbackAdmin extends Controller{
             $product_id = getPost('product_id');
             if(isset($_POST["user_id"]))
                 $user_id = getPost('user_id');
-            if(!$user_id)
+            var_dump($note);
+            if(!$user_id || $note == "")
                 header('Location: http://localhost/Laptrinhweb/Home/productDetail/'.$product_id);
-            $this->feedbackModel->addFeedbackProduct($note, $user_id,$product_id);
+            else $this->feedbackModel->addFeedbackProduct($note, $user_id,$product_id);
             header('Location: http://localhost/Laptrinhweb/Home/productDetail/'.$product_id);
         }
         else if(isset($_POST["btnContact"])){
