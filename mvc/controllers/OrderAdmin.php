@@ -63,6 +63,7 @@ class OrderAdmin extends Controller{
                     $orderDetails = [];
                 }
                 $orderId = $this->orderModel->getOrderId($user_id);
+                var_dump($orderId);
                 for($i=0;$i<count($orderDetails);$i++){
                     $this->orderModel->insertOrderDetail($orderId[0]["id"], $orderDetails[$i]["id"], $orderDetails[$i]["price"], $num[$i], $num[$i]*$orderDetails[$i]["price"]);
                 }

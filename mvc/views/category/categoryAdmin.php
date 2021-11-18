@@ -38,7 +38,7 @@
 						<a href="http://localhost/Laptrinhweb/CategoryAdmin/updateCategoryController/'.$data["category"][$i]["id"].'"><button class="btn btn-warning">Sửa</button></a>
 					</td>
 					<td style="width: 50px">
-					<a href="http://localhost/Laptrinhweb/CategoryAdmin/deleteCategoryController/'.$data["category"][$i]["id"].'"><button class="btn btn-danger">Xóa</button></a>
+					<a onclick="checkDeleteCategory('.$data["category"][$i]["id"].')" href="http://localhost/Laptrinhweb/CategoryAdmin/deleteCategoryController/'.$data["category"][$i]["id"].'"><button class="btn btn-danger">Xóa</button></a>
 					</td>
 				</tr>';
 	}
@@ -48,7 +48,19 @@
 		</table>
 	</div>
 </div>
-
+<script type="text/javascript">
+  function checkDeleteCategory(category_id){
+    $.ajax({
+      url: "../../CategoryAdmin/checkDeleteCategoryController",
+      method: "POST",
+      data: { category_id: category_id},
+      success: function (data) {
+		  alert(data);
+        location.reload();
+      }
+    });
+  }
+</script>
 <?php
 	require_once('mvc/views/blocks/footer_admin.php');
 ?>

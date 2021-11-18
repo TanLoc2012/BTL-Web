@@ -45,6 +45,12 @@ class CategoryAdmin extends Controller{
         $data = $this->categoryModel->selectCategoryDelete($id);
         header('Location: http://localhost/Laptrinhweb/CategoryAdmin');
     }
+
+    public function checkDeleteCategoryController($id) {
+        $data = $this->categoryModel->selectCategoryDelete($id);
+        var_dump($data);
+        return $data;
+    }
 } 
 
 ?>

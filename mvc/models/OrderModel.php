@@ -69,7 +69,7 @@ class OrderModel extends DB{
         $sql = "SELECT  orders.id
                 FROM orders 
                 WHERE orders.user_id=$user_id
-                ORDER BY orders.created_at DESC
+                ORDER BY orders.id DESC
                 LIMIT 1";
         $orderItem = $this->executeResult($sql);
         return $orderItem;

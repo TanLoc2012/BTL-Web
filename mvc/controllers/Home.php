@@ -224,7 +224,6 @@ class Home extends Controller{
         $orderModel = $this->model("OrderModel");
         $detailorder = $orderModel->getDetailOrder($id);
         $orderItem = $orderModel->getOrderItem($id);
-
         $this->view("home",[
             "render"=>"orderDetail",
             "detailOrder"=>$detailorder,
