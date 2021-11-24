@@ -34,8 +34,13 @@
         if($data["orderItem"][$i]["status"] == 0 || $data["orderItem"][$i]["status"] == 4)
           echo '<td><a href="http://localhost/Laptrinhweb/Home/confirmOrder/'.$data["orderItem"][$i]["id"].'/'.$user["id"].'/'.$data["orderItem"][$i]["table_id"].'/2"><button class="btn btn-danger">Hủy</button><a/></td>';
         echo '</td>';
+<<<<<<< HEAD
         if($data["orderItem"][$i]["status"] != 3 && $data["orderItem"][$i]["status"] != 2)
           echo '<td><a href="http://localhost/Laptrinhweb/Home/confirmOrder/'.$data["orderItem"][$i]["id"].'/'.$user["id"].'/'.$data["orderItem"][$i]["table_id"].'/3"><button class="btn btn-danger">Hoàn thành giao dịch</button><a/></td>
+=======
+        if($data["orderItem"][$i]["status"] != 3)
+          echo '<td><a href="http://localhost/Laptrinhweb/Home/confirmOrder/'.$data["orderItem"][$i]["id"].'/'.$user["id"].'"><button class="btn btn-danger">Đã nhận hàng</button><a/></td>
+>>>>>>> 1cfbb2f1680a2bc60f5ddc55cb378674e3f5fcf8
       </tr>';
     }
   ?>
