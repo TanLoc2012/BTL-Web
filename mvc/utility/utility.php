@@ -83,8 +83,6 @@ function getUserToken($noSession=0) {
 	return null;
 }
 
-
-
 function fixUrl($thumbnail, $rootPath = "http://localhost/Laptrinhweb/public/images/") {
 	if(stripos($thumbnail, 'http://') !== false || stripos($thumbnail, 'https://') !== false) {
 	} else {

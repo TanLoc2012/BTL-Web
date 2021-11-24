@@ -51,17 +51,6 @@
                 integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </head>
-    <style>
-        #search_list{
-            position: absolute;
-            top: 50px;
-            right: 416px;
-            width: 22%;
-            background-color: white;
-            margin: 0 auto
-
-        }
-    </style>
     <body>
             <!-- Begin Header -->
             <nav id="navColor" class=" navbar fixed-top navbar-expand-lg navbar-light bg-light">
@@ -141,7 +130,7 @@
                 </div>
                 
             </nav>
-            <ul style="border-radius: 7px;width: 20%;position: absolute;z-index: 9999;background-color: #d2d3d4;right: 435px;top: 49px;" class="list-group" id="output_search">
+            <ul style="border-radius: 7px;width: 20%;position: fixed;z-index: 9999;background-color: #d2d3d4;right: 435px;top: 49px;" class="list-group" id="output_search">
                         <!-- <li style="margin: 5px 0;" class="list-group">
                             <div style="margin: 0 auto;" class="row">
                                 <div class="col-4" style="margin:0px;">

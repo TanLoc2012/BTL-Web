@@ -101,7 +101,7 @@
                                 $time = $_GET['vnp_PayDate'];
                                 $date_time = substr($time, 0, 4) . '-' . substr($time, 4, 2) . '-' . substr($time, 6, 2) . ' ' . substr($time, 8, 2) . ' ' . substr($time, 10, 2) . ' ' . substr($time, 12, 2);
                                 
-                                $conn = mysqli_connect('localhost', 'root', '', 'webdienthoai');
+                                $conn = mysqli_connect('localhost', 'root', '', 'restaurent');
                                 mysqli_set_charset($conn, 'utf8');
 
                                 $user_id=36;
