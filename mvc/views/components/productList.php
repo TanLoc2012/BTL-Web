@@ -6,10 +6,10 @@
         </ol>
     </nav>
     <!-- End Breadcrumb -->
-
     <div id="wrapper">
-    <p style="font-weight:600">Danh mục sản phẩm</p>
-    <button 
+        <p style="font-weight:600">Danh mục sản phẩm</p>
+        <p id="alert" style="position: absolute;top: 2rem;left: 2rem;">Thêm vào giỏ hàng thành công!!!</p>
+        <button 
         style="margin-bottom: 5px; margin-right: 5px;
         <?php
             if($data["category_id"] == 0)
@@ -59,6 +59,27 @@
             ?>
         " type="button" class="btn btn-primary">
             <a style="color:white;text-decoration:none" href="http://localhost/Laptrinhweb/Home/productList/<?=$data["category_id"]?>/1/4">Tên (Z &gt; A)</a></button>
+        <button style="margin-bottom: 5px; margin-right: 5px;
+            <?php
+                if($data["fillter"] == 5)
+                    echo "background-color:red";
+            ?>
+        " type="button" class="btn btn-primary">
+            <a style="color:white;text-decoration:none" href="http://localhost/Laptrinhweb/Home/productList/<?=$data["category_id"]?>/1/5">Giá dưới 100,000đ</a></button>
+        <button style="margin-bottom: 5px; margin-right: 5px;
+            <?php
+                if($data["fillter"] == 6)
+                    echo "background-color:red";
+            ?>
+        " type="button" class="btn btn-primary">
+            <a style="color:white;text-decoration:none" href="http://localhost/Laptrinhweb/Home/productList/<?=$data["category_id"]?>/1/6">Giá từ 100,000đ -&gt; 300,000đ</a></button>
+        <button style="margin-bottom: 5px; margin-right: 5px;
+            <?php
+                if($data["fillter"] == 7)
+                    echo "background-color:red";
+            ?>
+        " type="button" class="btn btn-primary">
+            <a style="color:white;text-decoration:none" href="http://localhost/Laptrinhweb/Home/productList/<?=$data["category_id"]?>/1/7">Giá trên 300,000đ</a></button>
        
         <hr>
         <?php
@@ -119,14 +140,15 @@
         </nav>
     </div>
 <script type="text/javascript">
-    function addToCard(productId, priceProduct) {
+    function addToCard(productId) {
         var action = "add";
         $.ajax({
             url:"http://localhost/Laptrinhweb/home/addToCart",
             method:"POST",
-            data:{action:action ,productId:productId, num:1, priceProduct:priceProduct},
+            data:{action:action ,productId:productId, num:1},
             success:function(data){
                 location.reload();
+                alert("Thêm vào giỏ hàng thành công!");
             }
         });
     }

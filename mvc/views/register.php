@@ -24,16 +24,17 @@
 
 <form id="form_register" action="http://localhost/Laptrinhweb/Register/UserRegister"  method="post">
     <h4>ĐĂNG KÝ TÀI KHOẢN</h4>
+    <p class="d-none" id="checkEmail"><?=$data["checkEmail"]?></p>
   <div class="form-group">
     <label for="exampleInputEmail1">Họ và tên</label>
     <input type="text" class="form-control" id="fullname" name="fullname">
     <div id="mes_fullname"></div>
   </div>
 
-  <div class="form-group">
-    <label for="exampleInputPassword1">Email</label>
-    <input type="email" class="form-control" id="email" name="email">
-  </div>
+  <div class="md-form md-outline mt-0">
+      <label for="form19">Email</label>
+      <input type="email" name="email" id="form19" class="form-control" placeholder="Email">
+    </div>
   <?php
   if(isset($data["result"])){
     if($data["result"] == false)
@@ -49,6 +50,7 @@
     <label for="exampleInputPassword1">Số điện thoại</label>
     <input type="text" class="form-control" id="phone_number" name="phone_number">
   </div>
+  
 
   <div class="form-group">
     <label for="exampleInputPassword1">Địa chỉ</label>
@@ -63,9 +65,14 @@
 </form>
 
 <script type="text/javascript">
+
+  var checkEmail = document.getElementById("checkEmail").innerHTML;
+  if(checkEmail == 0)
+    alert("Email đã tồn tại!!!");
+
     function checkRegister() {
         var fullname = document.getElementById("fullname").value;
-        var email = document.getElementById("email").value;
+        var email = document.getElementById("form19").value;
         var password = document.getElementById("password").value;
         var phone_number = document.getElementById("phone_number").value;
         var address = document.getElementById("address").value;

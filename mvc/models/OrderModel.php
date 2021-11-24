@@ -33,10 +33,10 @@ class OrderModel extends DB{
     }
 
     public function getorders($id){
-        $sql = "SELECT orders.created_at, orders.total_money, orders.status, orders.phone, orders.fullname,orders.id
+        $sql = "SELECT orders.created_at, orders.total_money, orders.status, orders.phone, orders.fullname,orders.id,table_id
                 FROM orders
                 WHERE orders.user_id=$id
-                order by orders.status ASC ";
+                order by orders.id DESC ";
         $orderItem = $this->executeResult($sql);
         return $orderItem;
     }
@@ -51,10 +51,14 @@ class OrderModel extends DB{
         $this->execute($sql);
     }
 
-    public function insertOrders($user_id, $fullname, $address, $phone, $email,$totalMoney) {
+    public function insertOrders($user_id, $fullname, $address, $phone, $email,$totalMoney, $table) {
         //insert
         $created_at = date("Y-m-d H:i:s");
-        $sql = "insert into orders(user_id, fullname, address, phone, email, created_at, total_money) values ('$user_id','$fullname', '$address','$phone','$email','$created_at','$totalMoney')";
+        if($table==0)
+            $sql = "insert into orders(user_id, fullname, address, phone, email, created_at, total_money) values ('$user_id','$fullname', '$address','$phone','$email','$created_at','$totalMoney')";
+        else{
+            $sql = "insert into orders(user_id, fullname, address, phone, email, created_at, total_money, table_id) values ('$user_id','$fullname', '$address','$phone','$email','$created_at','$totalMoney','$table')";
+        }
         $this->execute($sql);
     }
 
@@ -73,6 +77,39 @@ class OrderModel extends DB{
                 LIMIT 1";
         $orderItem = $this->executeResult($sql);
         return $orderItem;
+    }
+
+    public function getStaffOrder(){
+        $sql = "SELECT id,fullname,phone,user_id,total_money,table_id,status,created_at
+                FROM orders
+                WHERE status=4 OR status=0
+                ORDER BY id ASC";
+        $data = $this->executeResult($sql);
+        return $data;
+    }
+
+    public function getChefOrder(){
+        $sql = "SELECT id,fullname,phone,user_id,total_money,table_id,status,created_at
+                FROM orders
+                WHERE status=1
+                ORDER BY id ASC";
+        $data = $this->executeResult($sql);
+        return $data;
+    }
+
+    public function getTable(){
+        $sql = "SELECT id, note
+                FROM table_reservation 
+                WHERE status=0";
+        $table = $this->executeResult($sql);
+        return $table;
+    }
+
+    public function updateStatusTable($status,$table){
+        $sql = "UPDATE table_reservation 
+                SET status=$status
+                WHERE id=$table";
+        $this->execute($sql);
     }
 }
 

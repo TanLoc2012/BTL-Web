@@ -5,15 +5,15 @@
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img class="d-block w-100"
-                        src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/f3-fl3-690-300-max.png" alt="First slide">
+                        src="https://nhahangkimgiadalat.com/images/slide/feb216bdd35afa73086fbab2b89b059c.jpg" alt="First slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/690x300_7_.png"
+                    <img class="d-block w-100" src="https://nhahangkimgiadalat.com/images/slide/ab8f3eb269295b7258d49f60baf30e73.jpg"
                         alt="Second slide">
                 </div>
                 <div class="carousel-item">
                     <img class="d-block w-100"
-                        src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/f3-fl3-690-300-max.png" alt="Third slide">
+                        src="https://nhahangkimgiadalat.com/images/slide/4ba599aa4e18f1e11ed4202bc09b00c6.jpg" alt="Third slide">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -26,16 +26,13 @@
             </a>
         </div>
         <div class="imgSliderFlex">
-            <img style="margin-bottom: 10px;" src="https://cdn.tgdd.vn/2021/10/banner/cbfold3-830-300-830x300-2.png"
+            <img style="margin-bottom: 10px;" src="https://nhahangkimgiadalat.com/images/slide/feb216bdd35afa73086fbab2b89b059c.jpg"
                 alt="Third slide" class="imgSlider">
-            <img src="https://cdn.tgdd.vn/2021/11/banner/big11-830-300-830x300.png" alt="Third slide" class="imgSlider">
+            <img src="https://nhahangkimgiadalat.com/images/slide/ab8f3eb269295b7258d49f60baf30e73.jpg" alt="Third slide" class="imgSlider">
         </div>
     </div>
     <!-- End Slider -->
     <!-- Begin Under-Slider -->
-    <div class="under-slider">
-        <img src="https://cdn.cellphones.com.vn/media/wysiwyg/mb-ip-13-1200-75-max.png" alt="under-slider">
-    </div>
 </div>
 <!-- End Under-Slider -->
 <!-- Begin List Product -->

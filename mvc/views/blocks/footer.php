@@ -33,16 +33,16 @@
 
                     <ul class="list-unstyled foot-desc">
                         <li class="mb-2">
-                            <a href="http://localhost/Laptrinhweb/Home/productList/1">Vsmart</a>
+                            <a href="http://localhost/Laptrinhweb/Home/productList/109">Món nướng</a>
                         </li>
                         <li class="mb-2">
-                            <a href="http://localhost/Laptrinhweb/Home/productList/2">Iphone</a>
+                            <a href="http://localhost/Laptrinhweb/Home/productList/110">Món chay</a>
                         </li>
                         <li class="mb-2">
-                            <a href="http://localhost/Laptrinhweb/Home/productList/3">Samsung</a>
+                            <a href="http://localhost/Laptrinhweb/Home/productList/108">Món nước</a>
                         </li>
                         <li class="mb-2">
-                            <a href="http://localhost/Laptrinhweb/Home/productList/104">Oppo</a>
+                            <a href="http://localhost/Laptrinhweb/Home/productList/112">Thức uống</a>
                         </li>
                     </ul>
 

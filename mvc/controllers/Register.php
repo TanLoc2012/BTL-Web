@@ -9,8 +9,10 @@ class Register extends Controller{
       
     }
 
-    public function SayHi(){
-        $this->view("register", []);
+    public function SayHi($checkEmail=1){
+        $this->view("register", [
+            "checkEmail"=>$checkEmail
+        ]);
     }
 
     public function UserRegister() {
@@ -30,7 +32,7 @@ class Register extends Controller{
             if($kq["result"]) {
                 header('Location: http://localhost/Laptrinhweb/Login');
             }
-            else header('Location: http://localhost/Laptrinhweb/Register');
+            else header('Location: http://localhost/Laptrinhweb/Register/SayHi/0');
         }
     }
 }

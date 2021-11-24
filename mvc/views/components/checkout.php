@@ -31,6 +31,21 @@
         </div>
 
       </div>
+      <div class="form-group">
+          <label for="bank_code">Đặt bàn (Tùy chọn)</label>
+          <select name="table" id="bank_code" class="form-control">
+          <?php
+            $countTableExist = count($data["table"]);
+            if($countTableExist==0)
+              echo  '<option value="0">Hết bàn</option>';
+            else {
+              for($i=0;$i<$countTableExist;$i++){
+                echo  '<option value="'.$data["table"][$i]["id"].'">'.$data["table"][$i]["note"].'</option>';
+              }
+            }
+          ?>
+          </select>
+      </div>
       <input type="text" name="user_id" value="<?=$user["id"]?>" hidden="true">
       <input type="text" name="totalMoney" value="<?=$data["totalMoney"]?>" hidden="true">
       <div class="md-form md-outline mt-0">
@@ -50,7 +65,7 @@
         <input type="email" name="email" id="form19" class="form-control" placeholder="Email">
       </div>
 
-      <a style="color:white;text-decoration:none" ><button name="btnCheckout" class="btn btn-primary btn-block">Đặt hàng</button></a>
+      <a style="color:white;text-decoration:none" ><button onclick=checkOrderCheckout() name="btnCheckout" class="btn btn-primary btn-block">Đặt hàng</button></a>
 </form>
 
     </div>
@@ -96,3 +111,14 @@
 </div>
 <!-- Card -->
 <!--Section: Block Content-->
+<script type="text/javascript">
+    function checkOrderCheckout() {
+        var fullname = document.getElementById("form11").value;
+        var email = document.getElementById("form19").value;
+        var phone_number = document.getElementById("form18").value;
+        var address = document.getElementById("form14").value;
+
+        if(fullname == '' || email == '' || phone_number == ''|| address == ''  ) 
+          alert("Vui lòng nhập đủ thông tin!!!");
+    }
+</script>

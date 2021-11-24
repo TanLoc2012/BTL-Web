@@ -1,115 +1,138 @@
 <div id="wrapper">
 
-    <a style="color:black;text-decoration:none" href="http://localhost/Laptrinhweb/Home/productList/1"><h3 style="margin-left:20px; margin-top: 15px">Vsmart</h3></a>
+    <a style="color:black;text-decoration:none" href="http://localhost/Laptrinhweb/Home/productList/108"><h3 style="margin-left:20px; margin-top: 15px">Món nước</h3></a>
     <hr/>
     <div class="showproduct">
     <?php
         for($i=0;$i<4;$i++){
             echo    '<div class="card">';
-            echo        '<a href="http://localhost/Laptrinhweb/Home/productDetail/'.$data["productVsmart"][$i]["id"].'">
+            echo        '<a href="http://localhost/Laptrinhweb/Home/productDetail/'.$data["productMonNuoc"][$i]["id"].'">
                             <img class="card-img-top mt-2"
-                                src="'.$data["productVsmart"][$i]["thumbnail"].'"
+                                src="'.$data["productMonNuoc"][$i]["thumbnail"].'"
                                 alt="Card image cap">
                         </a>';
             echo        '<div class="card-body">';
-            echo            '<a id="taga" href="http://localhost/Laptrinhweb/Home/productDetail/'.$data["productVsmart"][$i]["id"].'"><h5 class="card-title">'.$data["productVsmart"][$i]["title"].'</h5></a>
+            echo            '<a id="taga" href="http://localhost/Laptrinhweb/Home/productDetail/'.$data["productMonNuoc"][$i]["id"].'"><h5 class="card-title">'.$data["productMonNuoc"][$i]["title"].'</h5></a>
                             <hr />';
-            echo            '<span class="card-text">'.number_format($data["productVsmart"][$i]["price"]).'đ</span>';
-            echo            '<span style="margin-left:12px; text-decoration: line-through;" class="card-text">'; if($data["productVsmart"][$i]["discount"] != 0) echo number_format($data["productVsmart"][$i]["discount"]).'đ'; echo '</span>';
+            echo            '<span class="card-text">'.number_format($data["productMonNuoc"][$i]["price"]).'đ</span>';
+            echo            '<span style="margin-left:12px; text-decoration: line-through;" class="card-text">'; if($data["productMonNuoc"][$i]["discount"] != 0) echo number_format($data["productMonNuoc"][$i]["discount"]).'đ'; echo '</span>';
             echo        '</div>';
-            echo        '<button type="button" class="btnOrder btn btn-danger" onclick="addToCard('.$data["productVsmart"][$i]["id"].')">Đặt hàng</button>';
+            echo        '<button type="button" class="btnOrder btn btn-danger" onclick="addToCard('.$data["productMonNuoc"][$i]["id"].')">Đặt hàng</button>';
             echo    '</div>';
         }
         ?>
     </div>
 
-    <a style="color:black;text-decoration:none" href="http://localhost/Laptrinhweb/Home/productList/2"><h3 style="margin-left:20px; margin-top: 15px">Iphone</h3></a>
+    <a style="color:black;text-decoration:none" href="http://localhost/Laptrinhweb/Home/productList/109"><h3 style="margin-left:20px; margin-top: 15px">Món nướng</h3></a>
     <hr/>
     <div class="showproduct">
     <?php
         for($i=0;$i<4;$i++){
             echo    '<div class="card">';
-            echo        '<a href="http://localhost/Laptrinhweb/Home/productDetail/'.$data["productIphone"][$i]["id"].'">
+            echo        '<a href="http://localhost/Laptrinhweb/Home/productDetail/'.$data["productMonNuong"][$i]["id"].'">
                             <img class="card-img-top mt-2"
-                                src="'.$data["productIphone"][$i]["thumbnail"].'"
+                                src="'.$data["productMonNuong"][$i]["thumbnail"].'"
                                 alt="Card image cap">
                         </a>';
             echo        '<div class="card-body">';
-            echo            '<a id="taga" href="http://localhost/Laptrinhweb/Home/productDetail/'.$data["productIphone"][$i]["id"].'"><h5 class="card-title">'.$data["productIphone"][$i]["title"].'</h5></a>
+            echo            '<a id="taga" href="http://localhost/Laptrinhweb/Home/productDetail/'.$data["productMonNuong"][$i]["id"].'"><h5 class="card-title">'.$data["productMonNuong"][$i]["title"].'</h5></a>
                             <hr />';
-            echo            '<span class="card-text">'.number_format($data["productIphone"][$i]["price"]).'đ</span>';
-            echo            '<span style="margin-left:12px; text-decoration: line-through;" class="card-text">'; if($data["productIphone"][$i]["discount"] != 0) echo number_format($data["productIphone"][$i]["discount"]).'đ'; echo '</span>';
+            echo            '<span class="card-text">'.number_format($data["productMonNuong"][$i]["price"]).'đ</span>';
+            echo            '<span style="margin-left:12px; text-decoration: line-through;" class="card-text">'; if($data["productMonNuong"][$i]["discount"] != 0) echo number_format($data["productMonNuong"][$i]["discount"]).'đ'; echo '</span>';
             echo        '</div>';
-            echo        '<button type="button" class="btnOrder btn btn-danger" onclick="addToCard('.$data["productIphone"][$i]["id"].')">Đặt hàng</button>';
+            echo        '<button type="button" class="btnOrder btn btn-danger" onclick="addToCard('.$data["productMonNuong"][$i]["id"].')">Đặt hàng</button>';
             echo    '</div>';
         }
         ?>
     </div>
 
-    <a style="color:black;text-decoration:none" href="http://localhost/Laptrinhweb/Home/productList/3"><h3 style="margin-left:20px; margin-top: 15px">Samsung</h3></a>
+    <a style="color:black;text-decoration:none" href="http://localhost/Laptrinhweb/Home/productList/110"><h3 style="margin-left:20px; margin-top: 15px">Món chay</h3></a>
     <hr/>
     <div class="showproduct">
     <?php
         for($i=0;$i<4;$i++){
             echo    '<div class="card">';
-            echo        '<a href="http://localhost/Laptrinhweb/Home/productDetail/'.$data["productSamsung"][$i]["id"].'">
+            echo        '<a href="http://localhost/Laptrinhweb/Home/productDetail/'.$data["productMonChay"][$i]["id"].'">
                             <img class="card-img-top mt-2"
-                                src="'.$data["productSamsung"][$i]["thumbnail"].'"
+                                src="'.$data["productMonChay"][$i]["thumbnail"].'"
                                 alt="Card image cap">
                         </a>';
             echo        '<div class="card-body">';
-            echo            '<a id="taga" href="http://localhost/Laptrinhweb/Home/productDetail/'.$data["productSamsung"][$i]["id"].'"><h5 class="card-title">'.$data["productSamsung"][$i]["title"].'</h5></a>
+            echo            '<a id="taga" href="http://localhost/Laptrinhweb/Home/productDetail/'.$data["productMonChay"][$i]["id"].'"><h5 class="card-title">'.$data["productMonChay"][$i]["title"].'</h5></a>
                             <hr />';
-            echo            '<span class="card-text">'.number_format($data["productSamsung"][$i]["price"]).'đ</span>';
-            echo            '<span style="margin-left:12px; text-decoration: line-through;" class="card-text">'; if($data["productSamsung"][$i]["discount"] != 0) echo number_format($data["productSamsung"][$i]["discount"]).'đ'; echo '</span>';
+            echo            '<span class="card-text">'.number_format($data["productMonChay"][$i]["price"]).'đ</span>';
+            echo            '<span style="margin-left:12px; text-decoration: line-through;" class="card-text">'; if($data["productMonChay"][$i]["discount"] != 0) echo number_format($data["productMonChay"][$i]["discount"]).'đ'; echo '</span>';
             echo        '</div>';
-            echo        '<button type="button" class="btnOrder btn btn-danger" onclick="addToCard('.$data["productSamsung"][$i]["id"].')">Đặt hàng</button>';
+            echo        '<button type="button" class="btnOrder btn btn-danger" onclick="addToCard('.$data["productMonChay"][$i]["id"].')">Đặt hàng</button>';
             echo    '</div>';
         }
         ?>
     </div>
 
-    <a style="color:black;text-decoration:none" href="http://localhost/Laptrinhweb/Home/productList/102"><h3 style="margin-left:20px; margin-top: 15px">Xiaomi</h3></a>
+    <a style="color:black;text-decoration:none" href="http://localhost/Laptrinhweb/Home/productList/111"><h3 style="margin-left:20px; margin-top: 15px">Món kho</h3></a>
     <hr/>
     <div class="showproduct">
     <?php
         for($i=0;$i<4;$i++){
             echo    '<div class="card">';
-            echo        '<a href="http://localhost/Laptrinhweb/Home/productDetail/'.$data["productXiaomi"][$i]["id"].'">
+            echo        '<a href="http://localhost/Laptrinhweb/Home/productDetail/'.$data["productMonKho"][$i]["id"].'">
                             <img class="card-img-top mt-2"
-                                src="'.$data["productXiaomi"][$i]["thumbnail"].'"
+                                src="'.$data["productMonKho"][$i]["thumbnail"].'"
                                 alt="Card image cap">
                         </a>';
             echo        '<div class="card-body">';
-            echo            '<a id="taga" href="http://localhost/Laptrinhweb/Home/productDetail/'.$data["productXiaomi"][$i]["id"].'"><h5 class="card-title">'.$data["productXiaomi"][$i]["title"].'</h5></a>
+            echo            '<a id="taga" href="http://localhost/Laptrinhweb/Home/productDetail/'.$data["productMonKho"][$i]["id"].'"><h5 class="card-title">'.$data["productMonKho"][$i]["title"].'</h5></a>
                             <hr />';
-            echo            '<span class="card-text">'.number_format($data["productXiaomi"][$i]["price"]).'đ</span>';
-            echo            '<span style="margin-left:12px; text-decoration: line-through;" class="card-text">'; if($data["productXiaomi"][$i]["discount"] != 0) echo number_format($data["productXiaomi"][$i]["discount"]).'đ'; echo '</span>';
+            echo            '<span class="card-text">'.number_format($data["productMonKho"][$i]["price"]).'đ</span>';
+            echo            '<span style="margin-left:12px; text-decoration: line-through;" class="card-text">'; if($data["productMonKho"][$i]["discount"] != 0) echo number_format($data["productMonKho"][$i]["discount"]).'đ'; echo '</span>';
             echo        '</div>';
-            echo        '<button type="button" class="btnOrder btn btn-danger" onclick="addToCard('.$data["productXiaomi"][$i]["id"].')">Đặt hàng</button>';
+            echo        '<button type="button" class="btnOrder btn btn-danger" onclick="addToCard('.$data["productMonKho"][$i]["id"].')">Đặt hàng</button>';
             echo    '</div>';
         }
         ?>
     </div>
 
-    <a style="color:black;text-decoration:none" href="http://localhost/Laptrinhweb/Home/productList/104"><h3 style="margin-left:20px; margin-top: 15px">Oppo</h3></a>
+    <a style="color:black;text-decoration:none" href="http://localhost/Laptrinhweb/Home/productList/112"><h3 style="margin-left:20px; margin-top: 15px">Thức uống</h3></a>
     <hr/>
     <div class="showproduct">
     <?php
         for($i=0;$i<4;$i++){
             echo    '<div class="card">';
-            echo        '<a href="http://localhost/Laptrinhweb/Home/productDetail/'.$data["productOppo"][$i]["id"].'">
+            echo        '<a href="http://localhost/Laptrinhweb/Home/productDetail/'.$data["productDrink"][$i]["id"].'">
                             <img class="card-img-top mt-2"
-                                src="'.$data["productOppo"][$i]["thumbnail"].'"
+                                src="'.$data["productDrink"][$i]["thumbnail"].'"
                                 alt="Card image cap">
                         </a>';
             echo        '<div class="card-body">';
-            echo            '<a id="taga" href="http://localhost/Laptrinhweb/Home/productDetail/'.$data["productOppo"][$i]["id"].'"><h5 class="card-title">'.$data["productOppo"][$i]["title"].'</h5></a>
+            echo            '<a id="taga" href="http://localhost/Laptrinhweb/Home/productDetail/'.$data["productDrink"][$i]["id"].'"><h5 class="card-title">'.$data["productDrink"][$i]["title"].'</h5></a>
                             <hr />';
-            echo            '<span class="card-text">'.number_format($data["productOppo"][$i]["price"]).'đ</span>';
-            echo            '<span style="margin-left:12px; text-decoration: line-through;" class="card-text">'; if($data["productOppo"][$i]["discount"] != 0) echo number_format($data["productOppo"][$i]["discount"]).'đ'; echo '</span>';
+            echo            '<span class="card-text">'.number_format($data["productDrink"][$i]["price"]).'đ</span>';
+            echo            '<span style="margin-left:12px; text-decoration: line-through;" class="card-text">'; if($data["productDrink"][$i]["discount"] != 0) echo number_format($data["productDrink"][$i]["discount"]).'đ'; echo '</span>';
             echo        '</div>';
-            echo        '<button type="button" class="btnOrder btn btn-danger" onclick="addToCard('.$data["productOppo"][$i]["id"].')">Đặt hàng</button>';
+            echo        '<button type="button" class="btnOrder btn btn-danger" onclick="addToCard('.$data["productDrink"][$i]["id"].')">Đặt hàng</button>';
+            echo    '</div>';
+        }
+        ?>
+    </div>
+
+    <a style="color:black;text-decoration:none" href="http://localhost/Laptrinhweb/Home/productList/113"><h3 style="margin-left:20px; margin-top: 15px">Ăn vặt</h3></a>
+    <hr/>
+    <div class="showproduct">
+    <?php
+        for($i=0;$i<4;$i++){
+            echo    '<div class="card">';
+            echo        '<a href="http://localhost/Laptrinhweb/Home/productDetail/'.$data["productAnVat"][$i]["id"].'">
+                            <img class="card-img-top mt-2"
+                                src="'.$data["productAnVat"][$i]["thumbnail"].'"
+                                alt="Card image cap">
+                        </a>';
+            echo        '<div class="card-body">';
+            echo            '<a id="taga" href="http://localhost/Laptrinhweb/Home/productDetail/'.$data["productAnVat"][$i]["id"].'"><h5 class="card-title">'.$data["productAnVat"][$i]["title"].'</h5></a>
+                            <hr />';
+            echo            '<span class="card-text">'.number_format($data["productAnVat"][$i]["price"]).'đ</span>';
+            echo            '<span style="margin-left:12px; text-decoration: line-through;" class="card-text">'; if($data["productAnVat"][$i]["discount"] != 0) echo number_format($data["productAnVat"][$i]["discount"]).'đ'; echo '</span>';
+            echo        '</div>';
+            echo        '<button type="button" class="btnOrder btn btn-danger" onclick="addToCard('.$data["productAnVat"][$i]["id"].')">Đặt hàng</button>';
             echo    '</div>';
         }
         ?>

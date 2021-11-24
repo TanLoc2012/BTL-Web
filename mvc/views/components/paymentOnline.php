@@ -8,6 +8,22 @@
                         <label for="form11">Họ và tên </label>
                         <input type="text" name="fullname" id="form11" class="form-control" placeholder="Họ và tên">
                     </div>
+
+                    <div class="form-group">
+                        <label for="bank_code1">Đặt bàn (Tùy chọn)</label>
+                        <select name="table" id="bank_code1" class="form-control">
+                        <?php
+                            $countTableExist = count($data["table"]);
+                            if($countTableExist==0)
+                            echo  '<option value="0">Hết bàn</option>';
+                            else {
+                            for($i=0;$i<$countTableExist;$i++){
+                                echo  '<option value="'.$data["table"][$i]["id"].'">'.$data["table"][$i]["note"].'</option>';
+                            }
+                            }
+                        ?>
+                        </select>
+                    </div>
                     <div class="form-group">
                         <label for="form18">Số điện thoại </label>
                         <input type="text" name="phone" id="form18" class="form-control" placeholder="Số điện thoại">

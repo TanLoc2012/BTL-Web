@@ -18,6 +18,7 @@
 <script>
     let myChart = document.getElementById('myChart').getContext('2d');
     // Global Options
+    // biểu đồ
     Chart.defaults.global.defaultFontFamily = 'Lato';
     Chart.defaults.global.defaultFontSize = 18;
     Chart.defaults.global.defaultFontColor = '#777';

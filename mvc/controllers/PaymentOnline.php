@@ -8,6 +8,7 @@ class PaymentOnline extends Controller{
     
     function SayHi() {
         $fullname = getPost('fullname');
+        $table = getPost('table');
         $address = getPost('address');
         $phone = getPost('phone');
         $email = getPost('email');
@@ -17,7 +18,10 @@ class PaymentOnline extends Controller{
             header('Location: http://localhost/Laptrinhweb/Home/paymentOnline/'.$totalMoney);
         else {
             $orderModel = $this->model("OrderModel");
-            $orderModel->insertOrders($user_id, $fullname, $address, $phone, $email,$totalMoney);
+            $orderModel->insertOrders($user_id, $fullname, $address, $phone, $email,$totalMoney,$table);
+            if($table!=0){
+                $orderModel->updateStatusTable(1,$table);
+            }
             $productModel = $this->model("ProductModel");
             $cart = [];
             $num = [];

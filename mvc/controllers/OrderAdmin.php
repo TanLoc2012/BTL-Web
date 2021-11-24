@@ -34,6 +34,7 @@ class OrderAdmin extends Controller{
         
         if(isset($_POST["btnCheckout"])){
             $fullname = getPost('fullname');
+            $table = getPost('table');
             $address = getPost('address');
             $phone = getPost('phone');
             $email = getPost('email');
@@ -42,7 +43,10 @@ class OrderAdmin extends Controller{
             if($fullname == "" || $address == "" || $phone == "" || $email == "")
                 header('Location: http://localhost/Laptrinhweb/Home/checkout/'.$totalMoney);
             else {
-                $this->orderModel->insertOrders($user_id, $fullname, $address, $phone, $email,$totalMoney);
+                $this->orderModel->insertOrders($user_id, $fullname, $address, $phone, $email,$totalMoney, $table);
+                if($table!=0){
+                    $this->orderModel->updateStatusTable(1,$table);
+                }
                 $productModel = $this->model("ProductModel");
                 $cart = [];
                 $num = [];

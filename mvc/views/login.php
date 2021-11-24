@@ -28,10 +28,9 @@
 
     <form id="form_login" action="http://localhost/Laptrinhweb/Login/UserLogin" method="post">
         <h4>ĐĂNG NHẬP</h4>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Email</label>
-            <input type="text" class="form-control" id="email" name="email"
-                placeholder="Email...">
+        <div class="md-form md-outline mt-0">
+            <label for="form19">Email</label>
+            <input type="email" name="email" id="form19" class="form-control" placeholder="Email">
         </div>
 
         <div class="form-group">
@@ -55,7 +54,7 @@
 
 <script type="text/javascript">
     function checkLogin() {
-        var email = document.getElementById("email").value;
+        var email = document.getElementById("form19").value;
         var password = document.getElementById("password").value;
         if(email == '' || password == '') 
           alert("Vui lòng nhập đủ thông tin!!!");

@@ -1,9 +1,24 @@
 <?php
     require_once "mvc/utility/utility.php";
-    $user = getUserToken();
-    
+    if(isset($data["render"])){
+        if($data["render"]=="quanlytaikhoan")
+            $user = getUserToken(1);
+        else $user = getUserToken();
+    }
+    else $user = getUserToken();
     if($user != null) {
         $fullname = $user["fullname"];
+        $role_id = $user["role_id"];
+    }
+    if(isset($data["render"]) && isset($role_id)){
+        if($data["render"]=="staff"){
+            if($role_id != 3)
+                header("Location: http://localhost/Laptrinhweb/Home");
+        }
+        else if($data["render"]=="chef"){
+            if($role_id != 4)
+                header("Location: http://localhost/Laptrinhweb/Home");
+        }
     }
     $cart = [];
     if(isset($_COOKIE['cart'])) {
@@ -23,7 +38,7 @@
 <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>PhoneStore</title>
+        <title>Restaurent</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon -->
@@ -36,10 +51,21 @@
                 integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </head>
+    <style>
+        #search_list{
+            position: absolute;
+            top: 50px;
+            right: 416px;
+            width: 22%;
+            background-color: white;
+            margin: 0 auto
+
+        }
+    </style>
     <body>
             <!-- Begin Header -->
             <nav id="navColor" class=" navbar fixed-top navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="http://localhost/Laptrinhweb/Home">PhoneStore</a>
+                <a class="navbar-brand" href="http://localhost/Laptrinhweb/Home">Restaurent</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -76,6 +102,11 @@
                             <a class="nav-link " href="http://localhost/Laptrinhweb/Home/contact">Liên hệ</a>
                         </li>
                     </ul>
+                    <form class="form-inline my-2 my-lg-0" method="POST" action="http://localhost/Laptrinhweb/Home/search_buttuon">
+                        <input class="form-control mr-sm-2" type="search" id="search_name" name="search_name" placeholder="Search..." aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
+                    </form>
+                    
                 </div>
                 <div style="margin-right: 20px;" class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -95,7 +126,8 @@
                         else{
                             if($user["role_id"] == 2) echo '<a class="dropdown-item" href="http://localhost/Laptrinhweb/Admin">Quản lý trang web</a>';
                             echo '<a class="dropdown-item" href="http://localhost/Laptrinhweb/Home/quanlytaikhoan">Quản lý tài khoản</a>';
-                            echo '<a class="dropdown-item" href="http://localhost/Laptrinhweb/Home/quanlydonhang/'.$user["id"].'">Quản lý đơn hàng</a>';
+                            if($user["role_id"] == 3) echo '<a class="dropdown-item" href="http://localhost/Laptrinhweb/Home/staff">Quản lý đơn hàng</a>';
+                            else echo '<a class="dropdown-item" href="http://localhost/Laptrinhweb/Home/quanlydonhang/'.$user["id"].'">Quản lý đơn hàng</a>';
                             echo '<a class="dropdown-item" href="http://localhost/Laptrinhweb/Login/UserLogout">Đăng xuất</a>';
                         } 
                             
@@ -109,6 +141,47 @@
                 </div>
                 
             </nav>
+            <ul style="border-radius: 7px;width: 20%;position: absolute;z-index: 9999;background-color: #d2d3d4;right: 435px;top: 49px;" class="list-group" id="output_search">
+                        <!-- <li style="margin: 5px 0;" class="list-group">
+                            <div style="margin: 0 auto;" class="row">
+                                <div class="col-4" style="margin:0px;">
+                                    <img src="https://cdn.tgdd.vn/2021/10/CookDishThumb/cach-nau-mi-kitsune-udon-udon-dau-hu-chien-thumb-620x620.jpg" style="width: 75%;padding-right: 0;">
+                                </div>
+                                <div class="col-8">
+                                    <div class="name-product">
+                                        <a href="">Mì kim chi chua cay</a>
+                                    </div>
+                                    <div class="price">
+                                        <a href="">350,000đ</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li> -->
+					</ul>
             <!-- End Header -->
+<script type="text/javascript">
+	$(document).ready(function(){
+		var action = "search";
+		$("#search_name").keyup(function(){
+			var search_name = $("#search_name").val();
+			if ($("#search_name").val() != '') {
+                $.ajax({
+                    url:"http://localhost/Laptrinhweb/Home/search",
+                    method:"POST",
+                    data:{action:action,search_name:search_name},
+                    success:function(data){
+                        $("#output_search").html(data);
+                    }
+                });
+			}
+            else $("#output_search").html("");
+		});
+        $(window).click(function() {
+        //Hide the menus if visible
+            if($(".list-group").length > 1)
+                $("#output_search").html("");
+        });
+	});
+</script>
            
    
