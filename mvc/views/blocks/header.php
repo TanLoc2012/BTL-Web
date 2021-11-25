@@ -51,6 +51,15 @@
                 integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </head>
+    <style>
+        #alertSuccess{
+            position: fixed;
+            z-index: 999;
+            right: 45px;
+            font-weight: 500;
+            border-radius: 2px;
+        }
+    </style>
     <body>
             <!-- Begin Header -->
             <nav id="navColor" class=" navbar fixed-top navbar-expand-lg navbar-light bg-light">
@@ -62,7 +71,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
+                        <li class="nav-item <?php if($data["render"]!="tintuc" && $data["render"]!="gioithieu" && $data["render"]!="contact") echo "active"; ?>">
                             <a class="nav-link" href="http://localhost/Laptrinhweb/Home">Trang chủ <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item dropdown">
@@ -82,13 +91,13 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost/Laptrinhweb/Home/tintuc">Tin tức</a>
+                            <a class="nav-link <?php if($data["render"]=="tintuc") echo "active"; ?>" href="http://localhost/Laptrinhweb/Home/tintuc">Tin tức</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="http://localhost/Laptrinhweb/Home/gioithieu">Giới thiệu</a>
+                            <a class="nav-link <?php if($data["render"]=="gioithieu") echo "active"; ?>" href="http://localhost/Laptrinhweb/Home/gioithieu">Giới thiệu</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="http://localhost/Laptrinhweb/Home/contact">Liên hệ</a>
+                            <a class="nav-link <?php if($data["render"]=="contact") echo "active"; ?>" href="http://localhost/Laptrinhweb/Home/contact">Liên hệ</a>
                         </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0" method="POST" action="http://localhost/Laptrinhweb/Home/search_buttuon">
@@ -131,23 +140,9 @@
                 
             </nav>
             <ul style="border-radius: 7px;width: 20%;position: fixed;z-index: 9999;background-color: #d2d3d4;right: 435px;top: 49px;" class="list-group" id="output_search">
-                        <!-- <li style="margin: 5px 0;" class="list-group">
-                            <div style="margin: 0 auto;" class="row">
-                                <div class="col-4" style="margin:0px;">
-                                    <img src="https://cdn.tgdd.vn/2021/10/CookDishThumb/cach-nau-mi-kitsune-udon-udon-dau-hu-chien-thumb-620x620.jpg" style="width: 75%;padding-right: 0;">
-                                </div>
-                                <div class="col-8">
-                                    <div class="name-product">
-                                        <a href="">Mì kim chi chua cay</a>
-                                    </div>
-                                    <div class="price">
-                                        <a href="">350,000đ</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li> -->
-					</ul>
+			</ul>
             <!-- End Header -->
+            <p id="alertSuccess"></p>
 <script type="text/javascript">
 	$(document).ready(function(){
 		var action = "search";
@@ -167,8 +162,7 @@
 		});
         $(window).click(function() {
         //Hide the menus if visible
-            if($(".list-group").length > 1)
-                $("#output_search").html("");
+            $("#output_search").html("");
         });
 	});
 </script>

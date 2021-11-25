@@ -351,8 +351,8 @@ class Home extends Controller{
                 </li>
                 ';
             }
-            if($output == "")
-                $output = '<li style="margin: 5px auto;" class="list-group">
+            if($output == '<i style="right: 10px;position: absolute;top: 4px;z-index:9999" class="fas fa-times"></i>')
+                $output .= '<li style="margin: 5px 0;" class="list-group">
                             Không tìm thấy sản phẩm</li>';
             echo $output;
         }
