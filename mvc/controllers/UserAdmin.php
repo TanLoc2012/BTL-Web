@@ -8,10 +8,16 @@ class UserAdmin extends Controller{
         $this->userModel = $this->model("UserAdminModel");
     }
 
-    public function SayHi(){
+    public function SayHi($page=1){
         $allUser = $this->userModel->getAllUser();
+        $currentIndex = ($page-1) * 8;
+        $countAllProduct = count($allUser);
+        $numPages = ceil($countAllProduct/8);
         $this->view("user/userAdmin",[
-            "allUser"=> $allUser
+            "allUser"=> $allUser,
+            "numPages"=>$numPages,
+            "currentIndex"=>$currentIndex,
+            "pages"=>$page
         ]);
     }
 

@@ -120,7 +120,7 @@
         echo    '</div>';
     }
 ?>
- <p id="user_id"><?php if(isset($user["id"])) echo $user["id"]; else echo '123'; ?></p>
+ <p id="user_id" class="d-none"><?php if(isset($user["id"])) echo $user["id"]; else echo '123'; ?></p>
 </div>
 </div>
 <script type="text/javascript">

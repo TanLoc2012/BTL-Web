@@ -59,7 +59,4 @@
     <p>
         &nbsp;
     </p>
-    <footer class="footer">
-        <p>&copy; Quản lý Tiếng Anh 2020</p>
-    </footer>
 </div>  

@@ -8,10 +8,17 @@ class OrderAdmin extends Controller{
         $this->orderModel = $this->model("OrderModel");
     }
 
-    public function SayHi(){
+    public function SayHi($page=1){
         $allOrder = $this->orderModel->getAllOrder();
+        $currentIndex = ($page-1) * 8;
+        $countAllProduct = count($allOrder);
+        $numPages = ceil($countAllProduct/8);
+
         $this->view("order/orderAdmin",[
-            "allOrder"=> $allOrder
+            "allOrder"=> $allOrder,
+            "numPages"=>$numPages,
+            "currentIndex"=>$currentIndex,
+            "pages"=>$page
         ]);
     }
 

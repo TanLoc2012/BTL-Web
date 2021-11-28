@@ -13,11 +13,12 @@
                     <h5>Giới thiệu về chúng tôi</h5>
                     <hr class="color-primary mb-4 mt-0 d-inline-block mx-auto w-60">
 
-                    <p class="foot-desc mb-0">Đội ngũ phát triển gồm 4 thành viên</p>
+                    <p class="foot-desc mb-0">Nhóm gồm 5 thành viên</p>
                     <p class="foot-desc mb-0">Nguyễn Tấn Lộc</p>
                     <p class="foot-desc mb-0">Nguyễn Duy Khánh</p>
-                    <p class="foot-desc mb-0">Nguyễn Tuấn Kiệt</p>
-                    <p class="foot-desc mb-0">Lâm Phan Minh Khoa</p>
+                    <p class="foot-desc mb-0">Nguyễn Quang Long</p>
+                    <p class="foot-desc mb-0">Võ Văn Đăng Khoa</p>
+                    <p class="foot-desc mb-0">Lê Huy Ngọ</p>
 
                 </div>
                 <!-- Grid column -->

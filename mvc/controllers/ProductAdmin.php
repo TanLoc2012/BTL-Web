@@ -8,11 +8,17 @@ class ProductAdmin extends Controller{
         $this->productModel = $this->model("ProductModel");
     }
 
-    public function SayHi(){
+    public function SayHi($page=1){
         $allProduct = $this->productModel->getAllProduct(1);
-        
+        $currentIndex = ($page-1) * 8;
+        $countAllProduct = count($allProduct);
+        $numPages = ceil($countAllProduct/8);
+
         $this->view("product/productAdmin",[
-            "allProduct"=>$allProduct
+            "allProduct"=>$allProduct,
+            "numPages"=>$numPages,
+            "currentIndex"=>$currentIndex,
+            "pages"=>$page
         ]);
     }
 

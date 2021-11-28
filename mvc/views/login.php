@@ -27,6 +27,7 @@
 <body>
 
     <form id="form_login" action="http://localhost/Laptrinhweb/Login/UserLogin" method="post">
+    <!-- <form id="form_login" action="Login/UserLogin" method="post"> -->
         <h4>ĐĂNG NHẬP</h4>
         <div class="md-form md-outline mt-0">
             <label for="form19">Email</label>
@@ -46,8 +47,10 @@
                
         ?>
         <div>
+            <button type="submit" onclick="checkLogin()" name="btnLogin" class="btn btn-primary">Đăng nhập</button>
+            <br/>
             <a id="link_register" href="http://localhost/Laptrinhweb/Register">Đăng ký tài khoản</a>
-            <button type="submit" onclick="checkLogin()" name="btnLogin" class="btn btn-primary">Login</button>
+            <br/>
             <a id="link_register" href="http://localhost/Laptrinhweb/Home">Trở về trang chủ</a>
         </div>
     </form>

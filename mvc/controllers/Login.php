@@ -41,7 +41,8 @@ class Login extends Controller{
                 }
             }
             else {
-                header('Location: http://localhost/Laptrinhweb/Login');
+                // header('Location: http://localhost/Laptrinhweb/Login');
+                $this->view("login", []);
             }
 
         }
