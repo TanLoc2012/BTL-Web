@@ -2,11 +2,12 @@
 	$title = 'Quản Lý Người Dùng';
 	$isActive = "UserAdmin";
 	require_once('mvc/views/blocks/header_admin.php');
+	$countUser = count($data["allUser"]);
 ?>
 
 <div class="row" style="margin-top: 20px;">
 	<div class="col-md-12 table-responsive">
-		<h3>Quản Lý Người Dùng</h3>
+		<h3>Quản Lý Người Dùng - Tổng cộng có <?=$countUser?> tài khoản</h3>
 
 		<a href="http://localhost/Laptrinhweb/UserAdmin/viewInsertUser"><button class="btn btn-success">Thêm Tài Khoản</button></a>
 
@@ -25,7 +26,6 @@
 			</thead>
 			<tbody>
 <?php
-	$countUser = count($data["allUser"]);
 	for($i=$data["currentIndex"];$i<$data["currentIndex"]+8 && $i<$countUser;$i++) {
 		echo '<tr>
 					<th>'.($i+1).'</th>

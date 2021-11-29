@@ -3,8 +3,10 @@
 	$isActive = "Dashboard";
 	require_once "mvc/utility/utility.php";
 	require_once('blocks/header_admin.php');
-    for($i=0;$i<12;$i++)
+    for($i=0;$i<12;$i++){
         echo '<p class="d-none" id="m'.$data["doanhthu"][$i]["MONTH(created_at)"].'">'.$data["doanhthu"][$i]["SUM(total_money)"].'<p>';
+        echo '<p class="d-none" id="o'.$data["doanhthu"][$i]["MONTH(created_at)"].'">'.$data["doanhthu"][$i]["SUM(status)"].'<p>';
+    }
 ?>
 
 <div class="row">
@@ -14,8 +16,10 @@
 </div>
 <div class="container">
     <canvas id="myChart"></canvas>
+    <canvas style="width:%" id="lineChart"></canvas>
 </div>
 <script>
+    
     let myChart = document.getElementById('myChart').getContext('2d');
     // Global Options
     // biểu đồ
@@ -34,6 +38,80 @@
     var m10 = document.getElementById("m10").innerHTML;
     var m11 = document.getElementById("m11").innerHTML;
     var m12 = document.getElementById("m12").innerHTML;
+
+    var o1 = document.getElementById("o1").innerHTML;
+    var o2 = document.getElementById("o2").innerHTML;
+    var o3 = document.getElementById("o3").innerHTML;
+    var o4 = document.getElementById("o4").innerHTML;
+    var o5 = document.getElementById("o5").innerHTML;
+    var o6 = document.getElementById("o6").innerHTML;
+    var o7 = document.getElementById("o7").innerHTML;
+    var o8 = document.getElementById("o8").innerHTML;
+    var o9 = document.getElementById("o9").innerHTML;
+    var o10 = document.getElementById("o10").innerHTML;
+    var o11 = document.getElementById("o11").innerHTML;
+    var o12 = document.getElementById("o12").innerHTML;
+
+    // Line chart
+var ctxL = document.getElementById("lineChart").getContext('2d');
+var myLineChart = new Chart(ctxL, {
+    type: 'line',
+    data: {
+        labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October","November","December"],
+        datasets: [
+            {
+                label: "Tổng số đơn hàng",
+                data: [o1, o2, o3, o4, o5, o6, o7, o8,o9,o10,o11,o12],
+                backgroundColor: 'rgba(66, 133, 244, 0.0)',
+                borderColor: '#4285F4',
+                borderWidth: 2,
+                pointBorderColor: '#4285F4',
+                pointBackgroundColor: '#4285F4',
+                lineTension: 0.00,
+            }
+        ]
+    },
+    options: {
+        title: {
+                display: true,
+                text: 'Thống kê đơn hàng hàng tháng',
+                fontSize: 25,
+            },
+        responsive: true,
+        legend: {
+            display: true,
+        },
+        tooltips: {
+            intersect: false,
+            oode: 'index'
+        },
+        scales: {
+            xAxes: [{
+                stacked: true,
+                gridLines: {
+                    display: false,
+                },
+
+                ticks: {
+                    fontColor: 'rgba(0,0,0, 0.5)',
+                }
+            }],
+            yAxes: [{
+                stacked: true,
+                gridLines: {
+                    borderDash: [2],
+                    drawBorder: false,
+                    zeroLineColor: "rgba(0,0,0,0)",
+                    zeroLineBorderDash: [2],
+                    zeroLineBorderDashOffset: [2]
+                },
+                ticks: {
+                    fontColor: 'rgba(0,0,0, 0.5)'
+                }
+            }]
+        }
+    }
+});
 
     let massPopChart = new Chart(myChart, {
         type: 'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
@@ -57,18 +135,18 @@
                 ],
                 //backgroundColor:'green',
                 backgroundColor: [
-                    'rgba(153, 102, 255, 0.6)',
-                    'rgba(153, 102, 255, 0.6)',
-                    'rgba(153, 102, 255, 0.6)',
-                    'rgba(153, 102, 255, 0.6)',
-                    'rgba(153, 102, 255, 0.6)',
-                    'rgba(153, 102, 255, 0.6)',
-                    'rgba(153, 102, 255, 0.6)',
-                    'rgba(153, 102, 255, 0.6)',
-                    'rgba(153, 102, 255, 0.6)',
-                    'rgba(153, 102, 255, 0.6)',
-                    'rgba(153, 102, 255, 0.6)',
-                    'rgba(153, 102, 255, 0.6)'
+                    '#4285f4',
+                    '#4285f4',
+                    '#4285f4',
+                    '#4285f4',
+                    '#4285f4',
+                    '#4285f4',
+                    '#4285f4',
+                    '#4285f4',
+                    '#4285f4',
+                    '#4285f4',
+                    '#4285f4',
+                    '#4285f4'
                 ],
                 borderWidth: 1,
                 borderColor: '#777',

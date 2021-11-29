@@ -2,11 +2,12 @@
 	$title = 'Quản Lý Phản Hồi';
     $isActive = "FeedbackAdmin";
 	require_once('mvc/views/blocks/header_admin.php');
+	$countFeedback = count($data["allFeedback"]);
 ?>
 
 <div class="row" style="margin-top: 20px;">
 	<div class="col-md-12 table-responsive">
-		<h3>Quản Lý Phản Hồi</h3>
+		<h3>Quản Lý Phản Hồi - Tổng cộng có <?=$countFeedback?> phản hồi</h3>
 
 		<table class="table table-bordered table-hover" style="margin-top: 20px;">
 			<thead>
@@ -23,7 +24,6 @@
 			</thead>
 			<tbody>
 <?php
-	$countFeedback = count($data["allFeedback"]);
 	for($i=0; $i<$countFeedback; $i++) {
 		echo '<tr>
 					<th>'.$i.'</th>

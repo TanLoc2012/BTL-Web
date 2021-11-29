@@ -2,10 +2,11 @@
 	$title = 'Quản Lý Sản Phẩm';
     $isActive = "ProductAdmin";
 	require_once('mvc/views/blocks/header_admin.php');
+	$countProduct = count($data["allProduct"]);
 ?>
 <div class="row" style="margin-top: 20px;">
 	<div class="col-md-12 table-responsive">
-		<h3>Quản Lý Sản Phẩm</h3>
+		<h3>Quản Lý Sản Phẩm - Tổng cộng có <?=$countProduct?> sản phẩm</h3>
 
 		<a href="http://localhost/Laptrinhweb/ProductAdmin/viewAddProduct"><button class="btn btn-success">Thêm Sản Phẩm</button></a>
 
@@ -23,7 +24,7 @@
 			</thead>
 			<tbody>
 <?php
-	$countProduct = count($data["allProduct"]);
+	
 	for($i=$data["currentIndex"];$i<$data["currentIndex"]+8 && $i<$countProduct;$i++) {
 		echo '<tr>
 					<th>'.($i+1).'</th>

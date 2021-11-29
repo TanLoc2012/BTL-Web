@@ -42,11 +42,11 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="price">Giá:</label>
+                            <label for="price">Giá niêm yết:</label>
                             <input required="true" type="number" class="form-control" id="price" name="price">
                         </div>
                         <div class="form-group">
-                            <label for="discount">Giảm Giá:</label>
+                            <label for="discount">Giá:</label>
                             <input type="text" class="form-control" id="discount" name="discount">
                         </div>                            
                             <button class="btn btn-success">Lưu Sản Phẩm</button>

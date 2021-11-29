@@ -2,11 +2,12 @@
 	$title = 'Quản Lý Danh Mục Sản Phẩm';
 	$isActive = "CategoryAdmin";
 	require_once('mvc/views/blocks/header_admin.php');
+	$countCategory = count($data["category"]);
 ?>
 
 <div class="row" style="margin-top: 20px;">
 	<div class="col-md-12" style="margin-bottom: 20px;">
-		<h3>Quản Lý Danh Mục Sản Phẩm</h3>
+		<h3>Quản Lý Danh Mục Sản Phẩm - Tổng cộng có <?=$countCategory?> danh mục</h3>
 		<p class="d-none" id="deleteSuccess"><?=$data["deleteSuccess"]?></p>
 	</div>
 	<div class="col-md-6">
@@ -30,7 +31,6 @@
 			</thead>
 			<tbody>
 <?php
-	$countCategory = count($data["category"]);
 	for($i=0; $i<$countCategory;$i++) {
 		echo '<tr>
 					<th>'.($i).'</th>

@@ -9,7 +9,7 @@ class OrderModel extends DB{
     }
 
     public function getDoanhthu(){
-        $sql = "SELECT SUM(total_money),MONTH(created_at) 
+        $sql = "SELECT SUM(total_money),MONTH(created_at),SUM(status) 
                 FROM orders 
                 WHERE status=3
                 GROUP BY MONTH(created_at)

@@ -8,6 +8,7 @@ class Admin extends Controller{
 
     function SayHi() {
         $doanhthu = $this->orderModel->getDoanhthu();
+
         $this->view("admin",[
             "doanhthu"=>$doanhthu
         ]);

@@ -2,11 +2,13 @@
 	$title = 'Quản Lý Đơn Hàng';
     $isActive = "OrderAdmin";
 	require_once('mvc/views/blocks/header_admin.php');
+	$countOrder = count($data["allOrder"]);
+
 ?>
 
 <div class="row" style="margin-top: 20px;">
 	<div class="col-md-12 table-responsive">
-		<h3>Quản Lý Đơn Hàng</h3>
+		<h3>Quản Lý Đơn Hàng - Tổng cộng có <?=$countOrder?> đơn hàng</h3>
 
 		<table class="table table-bordered table-hover" style="margin-top: 20px;">
 			<thead>
@@ -21,7 +23,6 @@
 			</thead>
 			<tbody>
 <?php
-	$countOrder = count($data["allOrder"]);
 	for($i=$data["currentIndex"];$i<$data["currentIndex"]+8 && $i<$countOrder;$i++) {
 		echo '<tr>
 					<th>'.($i+1).'</th>

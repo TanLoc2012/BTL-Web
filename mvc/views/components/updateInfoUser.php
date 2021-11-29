@@ -1,9 +1,8 @@
 <?php
 $user = getUserToken(1);
-var_dump($user);
 ?>
 
-<div  class="row" style="margin: 70px auto 0;width:50%">
+<div  class="row" style="margin: 90px auto 0;width:50%">
 	<div class="col-md-12 table-responsive">
 		<h3> Quản lý tài khoản</h3>
 		<div class="panel panel-primary">
